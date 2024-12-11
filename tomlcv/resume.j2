@@ -27,21 +27,25 @@
         }
 
         #header {
-            display: flex;
-            align-items: center;
             background-color: #f9f9f9;
             padding: 1em;
         }
 
         #header img {
-            height: 200px;
+            height: 180px;
+            width: 180px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin: 1em 0;
         }
 
         #header .row {
             justify-content: space-between;
             align-items: start;
+        }
+
+        #header .vsep {
+            height: 5em;
+            margin-right: 2em;
         }
 
         #contact {
@@ -70,6 +74,7 @@
         .col {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .row {
@@ -97,16 +102,11 @@
 </head>
 
 <body>
-    <div id="header">
-        <div>
-            <img src="data:image/jpeg;base64,{{basics.image}}" alt="{{basics.name}}">
-        </div>
+    <div id="header" class="row">
         <div class="col">
-            <div class="row">
-                <div>
-                    <h1>{{basics.name}}</h1>
-                    <h2>{{basics.label}}</h2>
-                </div>
+            <img src="data:image/jpeg;base64,{{basics.image}}" alt="{{basics.name}}">
+            <div id="contact-info">
+                {# <h3>Contact Information</h3> #}
                 <table id="contact">
                     <tr>
                         <td>Email</td>
@@ -120,8 +120,17 @@
                         <td>Website</td>
                         <td><a href="{{basics.url}}">{{basics.url}}</a></td>
                     </tr>
+                    <tr>
+                        <td>LinkedIn</td>
+                        <td><a href="{{basics.linkedin}}">{{basics.linkedin}}</a></td>
+                    </tr>
                 </table>
             </div>
+        </div>
+        <div class="vsep"></div>
+        <div>
+            <h1>{{basics.name}}</h1>
+            <h2>{{basics.label}}</h2>
             <p>{{basics.summary}}</p>
         </div>
     </div>
