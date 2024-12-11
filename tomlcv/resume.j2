@@ -7,33 +7,52 @@
         html {
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         body {
+            max-width: 70em;
+            margin: 1em 0;
             font-family: Arial, sans-serif;
             line-height: 1.5;
-            margin: 0;
-            padding: 0;
             color: #333;
+            background-color: white;
+            box-shadow: #333 0 0 1em;
         }
 
-        h1 {
+        main {
+            padding: 1em;
+        }
+
+        h2 {
+            margin: .6em 0;
+        }
+
+        h1,
+        h3,
+        h4 {
             margin: 0;
         }
 
-        #header h2 {
-            margin: 0;
+        p {
+            margin: .5em 0;
+        }
+
+        #header h2,
+        #publications h4 {
             color: #666;
         }
 
         #header {
-            background-color: #f9f9f9;
+            background-color: #f5ebe0;
             padding: 1em;
         }
 
         #header img {
-            height: 180px;
-            width: 180px;
+            height: 160px;
+            width: 160px;
             border-radius: 50%;
             margin: 1em 0;
         }
@@ -62,15 +81,6 @@
             padding-right: 10px;
         }
 
-        #publications h3,
-        h4 {
-            margin: 0;
-        }
-
-        #publications h4 {
-            color: #666;
-        }
-
         .col {
             display: flex;
             flex-direction: column;
@@ -83,12 +93,6 @@
             align-items: center;
         }
 
-        .hsep {
-            border-top: 1px solid #ccc;
-            flex-grow: 1;
-            margin: 0 10px;
-        }
-
         .vsep {
             border-left: 1px solid #ccc;
             height: 1em;
@@ -97,6 +101,19 @@
 
         .margin-left {
             margin-left: 1em;
+        }
+
+        #work,
+        #publications {
+            page-break-after: always;
+        }
+
+        @media print {
+            body {
+                max-width: none;
+                box-shadow: none;
+                margin: 0;
+            }
         }
     </style>
 </head>
@@ -135,88 +152,87 @@
         </div>
     </div>
 
-    <div id="work">
-        <h2>Work Experience</h2>
+    <main>
+        <div id="work">
+            <h2>Work Experience</h2>
 
-        <div class="margin-left">
-            {% for job in work %}
-            <div class="row">
-                <h3>{{job.position}} at {{job.company}}</h3>
-                <div class="vsep"></div>
-                <div>{{job.startDate}} - {{job.endDate}}</div>
-            </div>
+            <div class="margin-left">
+                {% for job in work %}
+                <div class="row">
+                    <h3>{{job.position}} at {{job.company}}</h3>
+                    <div class="vsep"></div>
+                    <div>{{job.startDate | date}} - {{job.endDate | date}}</div>
+                </div>
 
-            <p>{{job.summary}}</p>
+                <p>{{job.summary}}</p>
 
-            <ul>
-                {% for highlight in job.highlights %}
-                <li>{{highlight}}</li>
+                <ul>
+                    {% for highlight in job.highlights %}
+                    <li>{{highlight}}</li>
+                    {% endfor %}
+                </ul>
                 {% endfor %}
-            </ul>
-
-            {% endfor %}
-        </div>
-    </div>
-
-    <div id="education">
-        <h2>Education</h2>
-
-        <div class="margin-left">
-            {% for edu in education %}
-            <div class="row">
-                <h3>{{edu.studyType}} in {{edu.area}} at {{edu.institution}}</h3>
-                <div class="vsep"></div>
-                <div>GPA: {{edu.score}}</div>
-                <div class="vsep"></div>
-                <div>{{edu.startDate}} - {{edu.endDate}}</div>
             </div>
+        </div>
 
-            <p>{{edu.summary}}</p>
+        <div id="education">
+            <h2>Education</h2>
 
-            <ul>
-                {% for highlight in edu.highlights %}
-                <li>{{highlight}}</li>
+            <div class="margin-left">
+                {% for edu in education %}
+                <div class="row">
+                    <h3>{{edu.studyType}} in {{edu.area}} at {{edu.institution}}</h3>
+                    <div class="vsep"></div>
+                    <div>GPA: {{edu.score}}</div>
+                    <div class="vsep"></div>
+                    <div>{{edu.startDate | date}} - {{edu.endDate | date}}</div>
+                </div>
+
+                <p>{{edu.summary}}</p>
+
+                <ul>
+                    {% for highlight in edu.highlights %}
+                    <li>{{highlight}}</li>
+                    {% endfor %}
+                </ul>
                 {% endfor %}
-            </ul>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div id="publications">
-        <h2>Publications</h2>
-
-        <div class="margin-left">
-            {% for pub in publications %}
-            <h3>{{pub.name}}</h3>
-            <h4>{{pub.publisher}}</h4>
-            <p>{{pub.summary}}</p>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div id="projects">
-        <h2>Projects</h2>
-
-        <div class="margin-left">
-            {% for project in projects %}
-            <div class="row">
-                <h3>{{project.name}}</h3>
-                <div class="vsep"></div>
-                <a href="{{project.url}}">{{project.url}}</a>
-                <div class="vsep"></div>
-                <div>{{project.startDate}} - {{project.endDate}}</div>
             </div>
-            <p>{{project.description}}</p>
-            <ul>
-                {% for highlight in project.highlights %}
-                <li>{{highlight}}</li>
-                {% endfor %}
-            </ul>
-            {% endfor %}
         </div>
-    </div>
 
+        <div id="publications">
+            <h2>Selected Publications</h2>
 
+            <div class="margin-left">
+                {% for pub in publications %}
+                <h3>{{pub.name}}</h3>
+                <h4>{{pub.publisher}}</h4>
+                <p>{{pub.summary}}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="projects">
+            <h2>Projects</h2>
+
+            <div class="margin-left">
+                {% for project in projects %}
+                <div class="row">
+                    <h3>{{project.name}}</h3>
+                    <div class="vsep"></div>
+                    <a href="{{project.url}}">{{project.url}}</a>
+                    <div class="vsep"></div>
+                    <div>{{project.startDate}} - {{project.endDate}}</div>
+                </div>
+                <p>{{project.description}}</p>
+                <ul>
+                    {% for highlight in project.highlights %}
+                    <li>{{highlight}}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
