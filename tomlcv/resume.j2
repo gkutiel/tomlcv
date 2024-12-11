@@ -27,7 +27,7 @@
         }
 
         h2 {
-            margin: .6em 0;
+            margin: 1.2em 0 .5em 0;
         }
 
         h1,
@@ -38,6 +38,10 @@
 
         p {
             margin: .5em 0;
+        }
+
+        #header h2 {
+            margin: .4em 0;
         }
 
         #header h2,
@@ -159,7 +163,7 @@
             <div class="margin-left">
                 {% for job in work %}
                 <div class="row">
-                    <h3>{{job.position}} at {{job.company}}</h3>
+                    <h3>{{job.position}} @ {{job.company}}</h3>
                     <div class="vsep"></div>
                     <div>{{job.startDate | date}} - {{job.endDate | date}}</div>
                 </div>
@@ -181,7 +185,7 @@
             <div class="margin-left">
                 {% for edu in education %}
                 <div class="row">
-                    <h3>{{edu.studyType}} in {{edu.area}} at {{edu.institution}}</h3>
+                    <h3>{{edu.studyType}}, {{edu.area}} @ {{edu.institution}}</h3>
                     <div class="vsep"></div>
                     <div>GPA: {{edu.score}}</div>
                     <div class="vsep"></div>
@@ -220,18 +224,22 @@
                     <h3>{{project.name}}</h3>
                     <div class="vsep"></div>
                     <a href="{{project.url}}">{{project.url}}</a>
-                    <div class="vsep"></div>
-                    <div>{{project.startDate}} - {{project.endDate}}</div>
                 </div>
                 <p>{{project.description}}</p>
-                <ul>
-                    {% for highlight in project.highlights %}
-                    <li>{{highlight}}</li>
-                    {% endfor %}
-                </ul>
                 {% endfor %}
             </div>
         </div>
+
+        <div id="skills">
+            <h2>Skills</h2>
+
+            <div class="margin-left">
+                <ul>
+                    {% for skill in skills %}
+                    <li><strong>{{skill.name}}:</strong> {{skill.description}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
     </main>
 </body>
 
