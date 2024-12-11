@@ -1,0 +1,10 @@
+.vscode
+
+*.jpg
+*.html
+*.pdf
+
+
+resume.toml
+
+__pycache__

@@ -1,0 +1,207 @@
+<html>
+
+<head>
+    <title>{{ basics.name }} | {{basics.label}}</title>
+
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #header h2 {
+            margin: 0;
+            color: #666;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 1em;
+        }
+
+        #header img {
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        #header .row {
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        #contact {
+            border-collapse: collapse;
+        }
+
+        #contact td {
+            padding: 2px 0;
+            border: none;
+        }
+
+        #contact td:first-child {
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .hsep {
+            border-top: 1px solid #ccc;
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+
+        .vsep {
+            border-left: 1px solid #ccc;
+            height: 1em;
+            margin: 0 1em;
+        }
+
+        .margin-left {
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div>
+            <img src="data:image/jpeg;base64,{{basics.image}}" alt="{{basics.name}}">
+        </div>
+        <div class="col">
+            <div class="row">
+                <div>
+                    <h1>{{basics.name}}</h1>
+                    <h2>{{basics.label}}</h2>
+                </div>
+                <table id="contact">
+                    <tr>
+                        <td>Email</td>
+                        <td>{{basics.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{{basics.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td><a href="{{basics.url}}">{{basics.url}}</a></td>
+                    </tr>
+                </table>
+            </div>
+            <p>{{basics.summary}}</p>
+        </div>
+    </div>
+
+    <div id="work">
+        <h2>Work Experience</h2>
+
+        <div class="margin-left">
+            {% for job in work %}
+            <div class="row">
+                <h3>{{job.position}} at {{job.company}}</h3>
+                <div class="vsep"></div>
+                <div>{{job.startDate}} - {{job.endDate}}</div>
+            </div>
+
+            <p>{{job.summary}}</p>
+
+            <ul>
+                {% for highlight in job.highlights %}
+                <li>{{highlight}}</li>
+                {% endfor %}
+            </ul>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="education">
+        <h2>Education</h2>
+
+        <div class="margin-left">
+            {% for edu in education %}
+            <div class="row">
+                <h3>{{edu.studyType}} in {{edu.area}} at {{edu.institution}}</h3>
+                <div class="vsep"></div>
+                <div>GPA: {{edu.score}}</div>
+                <div class="vsep"></div>
+                <div>{{edu.startDate}} - {{edu.endDate}}</div>
+            </div>
+
+            <p>{{edu.summary}}</p>
+
+            <ul>
+                {% for highlight in edu.highlights %}
+                <li>{{highlight}}</li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="publications">
+        <h2>Publications</h2>
+
+        <div class="margin-left">
+            {% for pub in publications %}
+            <div class="row">
+                <h3>{{pub.name}}</h3>
+                <div class="vsep"></div>
+                <div>{{pub.releaseDate}}</div>
+            </div>
+            <p>{{pub.summary}}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="projects">
+        <h2>Projects</h2>
+
+        <div class="margin-left">
+            {% for project in projects %}
+            <div class="row">
+                <h3>{{project.name}}</h3>
+                <div class="vsep"></div>
+                <a href="{{project.url}}">{{project.url}}</a>
+                <div class="vsep"></div>
+                <div>{{project.startDate}} - {{project.endDate}}</div>
+            </div>
+            <p>{{project.description}}</p>
+            <ul>
+                {% for highlight in project.highlights %}
+                <li>{{highlight}}</li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</body>
+
+</html>
