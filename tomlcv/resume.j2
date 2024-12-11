@@ -58,6 +58,15 @@
             padding-right: 10px;
         }
 
+        #publications h3,
+        h4 {
+            margin: 0;
+        }
+
+        #publications h4 {
+            color: #666;
+        }
+
         .col {
             display: flex;
             flex-direction: column;
@@ -169,11 +178,8 @@
 
         <div class="margin-left">
             {% for pub in publications %}
-            <div class="row">
-                <h3>{{pub.name}}</h3>
-                <div class="vsep"></div>
-                <div>{{pub.releaseDate}}</div>
-            </div>
+            <h3>{{pub.name}}</h3>
+            <h4>{{pub.publisher}}</h4>
             <p>{{pub.summary}}</p>
             {% endfor %}
         </div>
