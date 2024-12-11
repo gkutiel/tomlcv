@@ -24,10 +24,11 @@
 
         main {
             padding: 1em;
+            padding-top: 0;
         }
 
         h2 {
-            margin: 1.2em 0 .5em 0;
+            margin: 1em 0 .5em 0;
         }
 
         h1,
@@ -37,7 +38,18 @@
         }
 
         p {
-            margin: .5em 0;
+            margin: 0;
+            padding: 1em 0;
+        }
+
+        td:first-child {
+            white-space: nowrap;
+            padding-right: 1.5em;
+            padding-top: .2em;
+        }
+
+        td {
+            vertical-align: top;
         }
 
         #header h2 {
@@ -71,7 +83,12 @@
             margin-right: 2em;
         }
 
-        #contact {
+        #header p {
+            text-align: justify;
+            padding-right: 1em;
+        }
+
+        table {
             border-collapse: collapse;
         }
 
@@ -103,13 +120,13 @@
             margin: 0 1em;
         }
 
-        .margin-left {
-            margin-left: 1em;
-        }
-
         #work,
         #publications {
             page-break-after: always;
+        }
+
+        .margin-left {
+            margin-left: 1em;
         }
 
         @media print {
@@ -117,6 +134,15 @@
                 max-width: none;
                 box-shadow: none;
                 margin: 0;
+            }
+
+            p {
+                padding: 0;
+            }
+
+            #publications p,
+            #projects p {
+                padding: 1em 0;
             }
         }
     </style>
@@ -159,60 +185,66 @@
     <main>
         <div id="work">
             <h2>Work Experience</h2>
-
-            <div class="margin-left">
+            <table>
                 {% for job in work %}
-                <div class="row">
-                    <h3>{{job.position}} @ {{job.company}}</h3>
-                    <div class="vsep"></div>
-                    <div>{{job.startDate | date}} - {{job.endDate | date}}</div>
-                </div>
-
-                <p>{{job.summary}}</p>
-
-                <ul>
-                    {% for highlight in job.highlights %}
-                    <li>{{highlight}}</li>
-                    {% endfor %}
-                </ul>
+                <tr>
+                    <td>{{job.startDate | date}} - {{job.endDate | date}}</td>
+                    <td>
+                        <h3>{{job.position}} @ {{job.company}}</h3>
+                        <p>{{job.summary}}</p>
+                        <ul>
+                            {% for highlight in job.highlights %}
+                            <li>{{highlight}}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
                 {% endfor %}
-            </div>
+            </table>
         </div>
 
         <div id="education">
             <h2>Education</h2>
 
-            <div class="margin-left">
+            <table>
                 {% for edu in education %}
-                <div class="row">
-                    <h3>{{edu.studyType}}, {{edu.area}} @ {{edu.institution}}</h3>
-                    <div class="vsep"></div>
-                    <div>GPA: {{edu.score}}</div>
-                    <div class="vsep"></div>
-                    <div>{{edu.startDate | date}} - {{edu.endDate | date}}</div>
-                </div>
+                <tr>
+                    <td>{{edu.startDate | date}} - {{edu.endDate | date}}</td>
+                    <td>
+                        <div class="row">
+                            <h3>{{edu.studyType}}, {{edu.area}} @ {{edu.institution}}</h3>
+                            <div class="vsep"></div>
+                            <div>GPA: {{edu.score}}</div>
+                        </div>
 
-                <p>{{edu.summary}}</p>
+                        <p>{{edu.summary}}</p>
 
-                <ul>
-                    {% for highlight in edu.highlights %}
-                    <li>{{highlight}}</li>
-                    {% endfor %}
-                </ul>
+                        <ul>
+                            {% for highlight in edu.highlights %}
+                            <li>{{highlight}}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
                 {% endfor %}
-            </div>
+            </table>
         </div>
 
         <div id="publications">
             <h2>Selected Publications</h2>
 
-            <div class="margin-left">
+            <table>
                 {% for pub in publications %}
-                <h3>{{pub.name}}</h3>
-                <h4>{{pub.publisher}}</h4>
-                <p>{{pub.summary}}</p>
+                <tr>
+                    <td>{{pub.releaseDate | date}}</td>
+                    <td>
+                        <h3>{{pub.name}}</h3>
+                        <h4>{{pub.publisher}}</h4>
+                        <p>{{pub.summary}}</p>
+                    </td>
+                </tr>
                 {% endfor %}
-            </div>
+            </table>
         </div>
 
         <div id="projects">
