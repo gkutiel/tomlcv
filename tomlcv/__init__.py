@@ -1,5 +1,5 @@
 import base64
-from datetime import date, datetime
+from datetime import date
 from importlib.resources import open_text
 
 import toml
@@ -12,7 +12,7 @@ def res2str(name: str):
         return f.read()
 
 
-def main(
+def tomlcv(
         *,
         in_toml: str = 'resume.toml',
         out_html: str = 'resume.html',
@@ -39,8 +39,8 @@ def main(
     with open(out_html, 'w') as f:
         f.write(resume_html)
 
-    print(datetime.now(), f'{out_html} created')
+    print(f'{in_toml} -> {out_html}')
 
 
-if __name__ == "__main__":
-    typer.run(main)
+def main():
+    typer.run(tomlcv)
