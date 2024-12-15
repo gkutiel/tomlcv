@@ -8,5 +8,6 @@ dist
 
 resume.toml
 cv.toml
+tmp.toml
 
 __pycache__

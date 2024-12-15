@@ -3,5 +3,61 @@
     "$id": "https://raw.githubusercontent.com/gkutiel/tomlcv/refs/heads/main/cv-schema.json",
     "title": "CV",
     "description": "Your CV in TOML format",
-    "type": "string"
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "image": {
+            "type": "string",
+            "description": "eg. image.jpg"
+        },
+        "name": {
+            "type": "string",
+            "description": "eg. Gilad Kutiel"
+        },
+        "title": {
+            "type": "string",
+            "description": "eg. Full Stack Developer"
+        },
+        "summary": {
+            "type": "string",
+            "description": "eg. I'm a full stack developer with 10 years of experience"
+        },
+        "contact": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "eg. example@gmail.com"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "eg. +972-50-1234567"
+                },
+                "linkedin": {
+                    "type": "string",
+                    "description": "eg. https://www.linkedin.com/in/kutiel"
+                },
+                "website": {
+                    "type": "string",
+                    "description": "eg. https://gilad.kutiel.com"
+                },
+                "dblp": {
+                    "type": "string",
+                    "description": "eg. https://dblp.org/pid/1234567"
+                }
+            },
+            "required": [
+                "email",
+                "phone",
+                "linkedin"
+            ]
+        }
+    },
+    "required": [
+        "image",
+        "name",
+        "title",
+        "summary",
+        "contact"
+    ]
 }
