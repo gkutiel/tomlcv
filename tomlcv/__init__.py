@@ -1,6 +1,7 @@
 import base64
 from datetime import date
 from importlib.resources import open_text
+from pathlib import Path
 
 import toml
 import typer
@@ -14,9 +15,13 @@ def res2str(name: str):
 
 def tomlcv(
         *,
-        in_toml: str = 'resume.toml',
-        out_html: str = 'resume.html',
+        in_toml: str = 'cv.toml',
+        out_html: str = 'docs/index.html',
         date_format: str = "%b %Y"):
+
+    Path(out_html).parent.mkdir(
+        parents=True,
+        exist_ok=True)
 
     def format_date(date: date):
         return date.strftime(date_format)
@@ -32,7 +37,7 @@ def tomlcv(
     with open(img, 'rb') as f:
         resume['basics']['image'] = base64.encodebytes(f.read()).decode()
 
-    template = env.from_string(res2str('resume.j2'))
+    template = env.from_string(res2str('cv.j2'))
 
     resume_html = template.render(resume)
 

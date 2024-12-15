@@ -4,7 +4,21 @@
     "title": "CV",
     "description": "Your CV in TOML format",
     "type": "object",
+    "$defs": {
+        "iso8601": {
+            "type": "string",
+            "description": "e.g. 2014-06-29",
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+        }
+    },
     "additionalProperties": false,
+    "required": [
+        "image",
+        "name",
+        "title",
+        "summary",
+        "contact"
+    ],
     "properties": {
         "image": {
             "type": "string",
@@ -51,13 +65,50 @@
                 "phone",
                 "linkedin"
             ]
+        },
+        "work": {
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "startDate",
+                    "endDate",
+                    "employer",
+                    "position",
+                    "summary"
+                ],
+                "properties": {
+                    "startDate": {
+                        "$ref": "#/$defs/iso8601"
+                    },
+                    "endDate": {
+                        "$ref": "#/$defs/iso8601"
+                    },
+                    "employer": {
+                        "type": "string",
+                        "description": "e.g. Facebook"
+                    },
+                    "position": {
+                        "type": "string",
+                        "description": "e.g. Software Engineer"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "e.g. Social Media Company"
+                    },
+                    "highlights": {
+                        "type": "array",
+                        "description": "Specify multiple accomplishments",
+                        "additionalItems": false,
+                        "items": {
+                            "type": "string",
+                            "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+                        }
+                    }
+                }
+            }
         }
-    },
-    "required": [
-        "image",
-        "name",
-        "title",
-        "summary",
-        "contact"
-    ]
+    }
 }

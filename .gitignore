@@ -4,6 +4,7 @@ dist
 *.jpg
 *.html
 *.pdf
+*.bu
 
 
 resume.toml

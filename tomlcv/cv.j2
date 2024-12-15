@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="module"
+    crossorigin>(function () { const r = document.createElement("link").relList; if (r && r.supports && r.supports("modulepreload")) return; for (const e of document.querySelectorAll('link[rel="modulepreload"]')) n(e); new MutationObserver(e => { for (const t of e) if (t.type === "childList") for (const o of t.addedNodes) o.tagName === "LINK" && o.rel === "modulepreload" && n(o) }).observe(document, { childList: !0, subtree: !0 }); function c(e) { const t = {}; return e.integrity && (t.integrity = e.integrity), e.referrerPolicy && (t.referrerPolicy = e.referrerPolicy), e.crossOrigin === "use-credentials" ? t.credentials = "include" : e.crossOrigin === "anonymous" ? t.credentials = "omit" : t.credentials = "same-origin", t } function n(e) { if (e.ep) return; e.ep = !0; const t = c(e); fetch(e.href, t) } })(); addEventListener("DOMContentLoaded", () => { const r = document.getElementById("header"), n = document.getElementById("content").children; let e = r.getBoundingClientRect().height; for (const t of n) { const o = t.getBoundingClientRect().height; if (e + o > 1e3) { e = 0; const i = document.createElement("div"); i.className = "page-break", t.before(i) } e += o } });</script>
+
+  <style rel="stylesheet" crossorigin>
+    * {
+      box-sizing: border-box;
+      margin: 0
+    }
+
+    :root {
+      --page-margin: 8mm
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5
+    }
+
+    h2 {
+      margin: .8em 0
+    }
+
+    h3 {
+      margin-bottom: .5em
+    }
+
+    #main {
+      width: 210mm;
+      margin: 3em auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: #333 0 0 1em;
+      text-align: justify;
+      color: #333
+    }
+
+    #header {
+      width: 100%;
+      padding: 1em var(--page-margin);
+      background-color: #faedcd
+    }
+
+    #header h2 {
+      color: #666
+    }
+
+    #content {
+      padding: var(--page-margin)
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 200px 1fr
+    }
+
+    .grid-2 h3 {
+      margin-top: -.2em
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column
+    }
+
+    .pad-v {
+      padding: 1em 0
+    }
+
+    .page-break {
+      border-bottom: 2px dashed #666;
+      page-break-after: always
+    }
+
+    @page {
+      size: A4;
+      margin: 0
+    }
+
+    @media print {
+      #main {
+        margin: 0;
+        box-shadow: none
+      }
+
+      .page-break {
+        border: none
+      }
+    }
+  </style>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+  <title>{{ basics.name }} | {{basics.label}}</title>
+</head>
+
+<body>
+  <main id="main">
+    <header id="header">
+      <h1>Gilad Kutiel</h1>
+      <h2>PhD, Applied Scientist</h2>
+      <p>
+        I hold a PhD in computer science and have more than 20 years of experience in software engineering.
+        Over the course of my career, I have developed expertise in natural language processing (NLP), large language
+        models (LLM), and computer vision (CV).
+        I have previously worked at top-tier companies such as Google, Facebook, and Amazon.
+      </p>
+
+    </header>
+
+    <div id="content">
+
+      <h2>Work Experience</h2>
+
+      <div class="grid-2 pad-v">
+        <div>Oct 2023 - Sep 2024</div>
+        <div>
+          <h3>Algorithm Engineer @ Mobileye</h3>
+          <p>
+            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
+            including
+            driver and face detection models.
+            Additionally, I design and implement generative models to enhance and expand our datasets.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2 pad-v">
+        <div>Oct 2023 - Sep 2024</div>
+        <div>
+          <h3>Algorithm Engineer @ Mobileye</h3>
+          <p>
+            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
+            including
+            driver and face detection models.
+            Additionally, I design and implement generative models to enhance and expand our datasets.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2 pad-v">
+        <div>Oct 2023 - Sep 2024</div>
+        <div>
+          <h3>Algorithm Engineer @ Mobileye</h3>
+          <p>
+            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
+            including
+            driver and face detection models.
+            Additionally, I design and implement generative models to enhance and expand our datasets.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2 pad-v">
+        <div>Oct 2023 - Sep 2024</div>
+        <div>
+          <h3>Algorithm Engineer @ Mobileye</h3>
+          <p>
+            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
+            including
+            driver and face detection models.
+            Additionally, I design and implement generative models to enhance and expand our datasets.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2 pad-v">
+        <div>Oct 2023 - Sep 2024</div>
+        <div>
+          <h3>Algorithm Engineer @ Mobileye</h3>
+          <p>
+            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
+            including
+            driver and face detection models.
+            Additionally, I design and implement generative models to enhance and expand our datasets.
+          </p>
+        </div>
+      </div>
+
+      <h2>Education</h2>
+
+      <div class="grid-2">
+        <div>Oct 2014 - Apr 2019</div>
+        <div>
+          <h3>PhD, Computer Science @ Technion</h3>
+          <p>Developed Approximation algorithms for NP-hard optimization problems.</p>
+          <ul>
+            <li>GPA: 92.8</li>
+            <li>Thesis: Approximation Algorithms for Submodular Maximization and Network Design Problems.</li>
+            <li>Published 4 conference papers and 2 journal papers.</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+    </div>
+  </main>
+</body>
+
+</html>
