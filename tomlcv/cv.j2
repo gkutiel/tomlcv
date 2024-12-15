@@ -11,7 +11,8 @@
   <style rel="stylesheet" crossorigin>
     * {
       box-sizing: border-box;
-      margin: 0
+      margin: 0;
+      padding: 0
     }
 
     :root {
@@ -20,7 +21,6 @@
 
     html,
     body {
-      margin: 0;
       padding: 0
     }
 
@@ -28,14 +28,6 @@
       font-family: Arial, sans-serif;
       font-size: 16px;
       line-height: 1.5
-    }
-
-    h2 {
-      margin: .8em 0
-    }
-
-    h3 {
-      margin-bottom: .5em
     }
 
     #main {
@@ -55,12 +47,49 @@
       background-color: #faedcd
     }
 
+    #header img {
+      height: 160px;
+      width: 160px;
+      border-radius: 50%;
+      margin: 1em 0;
+    }
+
+    #header .vsep {
+      height: 5em;
+      margin-right: 2em;
+    }
+
     #header h2 {
-      color: #666
+      color: #666;
+      padding: .5em 0;
+    }
+
+    #contact td {
+      padding: 2px 0;
+      border: none;
+    }
+
+    #contact td:first-child {
+      font-weight: bold;
+      padding-right: 10px;
+    }
+
+    #contact {
+      font-size: small;
     }
 
     #content {
-      padding: var(--page-margin)
+      padding: 0 var(--page-margin);
+      padding-bottom: var(--page-margin);
+    }
+
+    #content h2 {
+      padding: .5em 0 .1em 0;
+    }
+
+    #content h3 {
+      margin-top: -.3em;
+      padding-bottom: .2em;
     }
 
     .grid-2 {
@@ -68,13 +97,28 @@
       grid-template-columns: 200px 1fr
     }
 
-    .grid-2 h3 {
-      margin-top: -.2em
+    .vsep {
+      border-left: 1px solid #ccc;
+      height: 1em;
+      margin: 0 1em;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row
+    }
+
+    .row.center {
+      align-items: center;
     }
 
     .col {
       display: flex;
       flex-direction: column
+    }
+
+    .col.center {
+      align-items: center
     }
 
     .pad-v {
@@ -105,91 +149,59 @@
 
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
-  <title>{{ basics.name }} | {{basics.label}}</title>
+  <title>{{ name }} | {{title}}</title>
 </head>
 
 <body>
   <main id="main">
-    <header id="header">
-      <h1>Gilad Kutiel</h1>
-      <h2>PhD, Applied Scientist</h2>
-      <p>
-        I hold a PhD in computer science and have more than 20 years of experience in software engineering.
-        Over the course of my career, I have developed expertise in natural language processing (NLP), large language
-        models (LLM), and computer vision (CV).
-        I have previously worked at top-tier companies such as Google, Facebook, and Amazon.
-      </p>
-
+    <header id="header" class="row center">
+      <div class="col center">
+        <img src="{{image}}" alt="{{name}}">
+        <div id="contact">
+          <table>
+            <tr>
+              <td>Email</td>
+              <td>{{contact.email}}</td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>
+                <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>LinkedIn</td>
+              <td><a href="{{contact.linkedin}}">{{contact.linkedin}}</a></td>
+            </tr>
+            <tr>
+              <td>Website</td>
+              <td><a href="{{contact.website}}">{{contact.website}}</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="vsep"></div>
+      <div class="col">
+        <h1>{{name}}</h1>
+        <h2>{{title}}</h2>
+        <p>{{summary}}</p>
+      </div>
     </header>
 
     <div id="content">
 
       <h2>Work Experience</h2>
 
+      {% for w in work %}
       <div class="grid-2 pad-v">
-        <div>Oct 2023 - Sep 2024</div>
+        <div>{{w.startDate}} - {{w.endDate}}</div>
         <div>
-          <h3>Algorithm Engineer @ Mobileye</h3>
-          <p>
-            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
-            including
-            driver and face detection models.
-            Additionally, I design and implement generative models to enhance and expand our datasets.
-          </p>
+          <h3>{{w.position}} @ {{w.employer}}</h3>
+          <p>{{w.summary}}</p>
         </div>
       </div>
+      {% endfor %}
 
-      <div class="grid-2 pad-v">
-        <div>Oct 2023 - Sep 2024</div>
-        <div>
-          <h3>Algorithm Engineer @ Mobileye</h3>
-          <p>
-            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
-            including
-            driver and face detection models.
-            Additionally, I design and implement generative models to enhance and expand our datasets.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-2 pad-v">
-        <div>Oct 2023 - Sep 2024</div>
-        <div>
-          <h3>Algorithm Engineer @ Mobileye</h3>
-          <p>
-            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
-            including
-            driver and face detection models.
-            Additionally, I design and implement generative models to enhance and expand our datasets.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-2 pad-v">
-        <div>Oct 2023 - Sep 2024</div>
-        <div>
-          <h3>Algorithm Engineer @ Mobileye</h3>
-          <p>
-            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
-            including
-            driver and face detection models.
-            Additionally, I design and implement generative models to enhance and expand our datasets.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-2 pad-v">
-        <div>Oct 2023 - Sep 2024</div>
-        <div>
-          <h3>Algorithm Engineer @ Mobileye</h3>
-          <p>
-            As a member of the Driver Monitoring System (DMS) team, I develop and maintain critical components,
-            including
-            driver and face detection models.
-            Additionally, I design and implement generative models to enhance and expand our datasets.
-          </p>
-        </div>
-      </div>
 
       <h2>Education</h2>
 

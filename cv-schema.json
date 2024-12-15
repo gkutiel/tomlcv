@@ -17,7 +17,8 @@
         "name",
         "title",
         "summary",
-        "contact"
+        "contact",
+        "work"
     ],
     "properties": {
         "image": {
@@ -38,6 +39,11 @@
         },
         "contact": {
             "type": "object",
+            "required": [
+                "email",
+                "phone",
+                "linkedin"
+            ],
             "properties": {
                 "email": {
                     "type": "string",
@@ -59,12 +65,7 @@
                     "type": "string",
                     "description": "eg. https://dblp.org/pid/1234567"
                 }
-            },
-            "required": [
-                "email",
-                "phone",
-                "linkedin"
-            ]
+            }
         },
         "work": {
             "type": "array",
