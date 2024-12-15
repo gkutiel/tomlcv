@@ -9,6 +9,15 @@
             "type": "string",
             "description": "e.g. 2014-06-29",
             "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+        },
+        "highlights": {
+            "type": "array",
+            "description": "Specify multiple accomplishments",
+            "additionalItems": false,
+            "items": {
+                "type": "string",
+                "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+            }
         }
     },
     "additionalProperties": false,
@@ -18,7 +27,8 @@
         "title",
         "summary",
         "contact",
-        "work"
+        "work",
+        "education"
     ],
     "properties": {
         "image": {
@@ -100,13 +110,87 @@
                         "description": "e.g. Social Media Company"
                     },
                     "highlights": {
-                        "type": "array",
-                        "description": "Specify multiple accomplishments",
-                        "additionalItems": false,
-                        "items": {
-                            "type": "string",
-                            "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
-                        }
+                        "$ref": "#/$defs/highlights"
+                    }
+                }
+            }
+        },
+        "education": {
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "startDate",
+                    "endDate",
+                    "degree",
+                    "field",
+                    "institute",
+                    "gpa",
+                    "summary"
+                ],
+                "properties": {
+                    "startDate": {
+                        "$ref": "#/$defs/iso8601"
+                    },
+                    "endDate": {
+                        "$ref": "#/$defs/iso8601"
+                    },
+                    "degree": {
+                        "type": "string",
+                        "description": "e.g. Bachelor"
+                    },
+                    "field": {
+                        "type": "string",
+                        "description": "e.g. Computer Science"
+                    },
+                    "institute": {
+                        "type": "string",
+                        "description": "e.g. University of Cambridge"
+                    },
+                    "gpa": {
+                        "type": "number",
+                        "description": "e.g. 92.1"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "e.g. Thesis: 'The Evolution of Social Media'"
+                    },
+                    "highlights": {
+                        "$ref": "#/$defs/highlights"
+                    }
+                }
+            }
+        },
+        "publications": {
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "year",
+                    "title",
+                    "publisher",
+                    "summary"
+                ],
+                "properties": {
+                    "year": {
+                        "type": "integer",
+                        "description": "e.g. 2014"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "e.g. 'The Evolution of Social Media'"
+                    },
+                    "publisher": {
+                        "type": "string",
+                        "description": "e.g. Journal of Social Media"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "e.g. Published in the Journal of Social Media"
                     }
                 }
             }

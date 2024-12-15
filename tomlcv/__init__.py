@@ -35,6 +35,26 @@ class work:
 
 
 @dataclass
+class education:
+    startDate: date
+    endDate: date | None
+    degree: str
+    institute: str
+    field: str
+    gpa: float
+    summary: str
+    highlights: list[str]
+
+
+@dataclass
+class publication:
+    year: int
+    title: str
+    publisher: str
+    summary: str
+
+
+@dataclass
 class cv:
     image: str
     name: str
@@ -42,6 +62,8 @@ class cv:
     summary: str
     contact: contact
     work: list[work]
+    education: list[education]
+    publications: list[publication]
 
 
 def tomlcv(

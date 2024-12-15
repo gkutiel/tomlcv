@@ -12,22 +12,22 @@
     * {
       box-sizing: border-box;
       margin: 0;
-      padding: 0
+      padding: 0;
     }
 
     :root {
-      --page-margin: 8mm
+      --page-margin: 8mm;
     }
 
     html,
     body {
-      padding: 0
+      padding: 0;
     }
 
     body {
       font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     #main {
@@ -38,13 +38,13 @@
       align-items: center;
       box-shadow: #333 0 0 1em;
       text-align: justify;
-      color: #333
+      color: #333;
     }
 
     #header {
       width: 100%;
       padding: 1em var(--page-margin);
-      background-color: #faedcd
+      background-color: #faedcd;
     }
 
     #header img {
@@ -64,6 +64,10 @@
       padding: .5em 0;
     }
 
+    #contact table {
+      border-collapse: collapse;
+    }
+
     #contact td {
       padding: 2px 0;
       border: none;
@@ -71,7 +75,7 @@
 
     #contact td:first-child {
       font-weight: bold;
-      padding-right: 10px;
+      padding-right: 1em;
     }
 
     #contact {
@@ -92,9 +96,26 @@
       padding-bottom: .2em;
     }
 
-    .grid-2 {
+    #content h4 {
+      color: #666;
+      padding-bottom: .2em;
+    }
+
+    #content ul {
+      padding-top: .5em;
+      padding-left: 1em;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: 200px 1fr
+    }
+
+    .grid.wide {
+      grid-template-columns: 9rem 1fr;
+    }
+
+    .grid.narrow {
+      grid-template-columns: 4rem 1fr;
     }
 
     .vsep {
@@ -105,7 +126,7 @@
 
     .row {
       display: flex;
-      flex-direction: row
+      flex-direction: row;
     }
 
     .row.center {
@@ -114,35 +135,39 @@
 
     .col {
       display: flex;
-      flex-direction: column
+      flex-direction: column;
     }
 
     .col.center {
-      align-items: center
+      align-items: center;
     }
 
     .pad-v {
-      padding: 1em 0
+      padding: 1em 0;
     }
 
     .page-break {
       border-bottom: 2px dashed #666;
-      page-break-after: always
+      page-break-after: always;
+    }
+
+    h2:has(+.page-break) {
+      page-break-before: always;
     }
 
     @page {
       size: A4;
-      margin: 0
+      margin: 0;
     }
 
     @media print {
       #main {
         margin: 0;
-        box-shadow: none
+        box-shadow: none;
       }
 
       .page-break {
-        border: none
+        border: none;
       }
     }
   </style>
@@ -161,7 +186,7 @@
           <table>
             <tr>
               <td>Email</td>
-              <td>{{contact.email}}</td>
+              <td><a href="mailto:{{contact.email}}">{{contact.email}}</a></td>
             </tr>
             <tr>
               <td>Phone</td>
@@ -193,11 +218,16 @@
       <h2>Work Experience</h2>
 
       {% for w in work %}
-      <div class="grid-2 pad-v">
+      <div class="grid wide pad-v">
         <div>{{w.startDate}} - {{w.endDate}}</div>
         <div>
           <h3>{{w.position}} @ {{w.employer}}</h3>
           <p>{{w.summary}}</p>
+          <ul>
+            {% for highlight in w.highlights %}
+            <li>{{highlight}}</li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
       {% endfor %}
@@ -205,20 +235,35 @@
 
       <h2>Education</h2>
 
-      <div class="grid-2">
-        <div>Oct 2014 - Apr 2019</div>
+      {% for e in education %}
+      <div class="grid wide pad-v">
+        <div>{{e.startDate}} - {{e.endDate}}</div>
         <div>
-          <h3>PhD, Computer Science @ Technion</h3>
-          <p>Developed Approximation algorithms for NP-hard optimization problems.</p>
+          <h3>{{e.degree}} in {{e.field}} @ {{e.institute}}</h3>
+          <p>{{e.summary}}</p>
           <ul>
-            <li>GPA: 92.8</li>
-            <li>Thesis: Approximation Algorithms for Submodular Maximization and Network Design Problems.</li>
-            <li>Published 4 conference papers and 2 journal papers.</li>
+            <li>GPA: {{e.gpa}}</li>
+            {% for highlight in e.highlights %}
+            <li>{{highlight}}</li>
+            {% endfor %}
           </ul>
         </div>
       </div>
+      {% endfor %}
 
 
+      <h2>Selected Publication</h2>
+
+      {% for p in publications %}
+      <div class="grid narrow pad-v">
+        <div>{{p.year}}</div>
+        <div>
+          <h3>{{p.title}}</h3>
+          <h4>{{p.publisher}}</h4>
+          <p>{{p.summary}}</p>
+        </div>
+      </div>
+      {% endfor %}
 
     </div>
   </main>
