@@ -5,8 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="module"
-    crossorigin>(function () { const r = document.createElement("link").relList; if (r && r.supports && r.supports("modulepreload")) return; for (const e of document.querySelectorAll('link[rel="modulepreload"]')) n(e); new MutationObserver(e => { for (const t of e) if (t.type === "childList") for (const o of t.addedNodes) o.tagName === "LINK" && o.rel === "modulepreload" && n(o) }).observe(document, { childList: !0, subtree: !0 }); function c(e) { const t = {}; return e.integrity && (t.integrity = e.integrity), e.referrerPolicy && (t.referrerPolicy = e.referrerPolicy), e.crossOrigin === "use-credentials" ? t.credentials = "include" : e.crossOrigin === "anonymous" ? t.credentials = "omit" : t.credentials = "same-origin", t } function n(e) { if (e.ep) return; e.ep = !0; const t = c(e); fetch(e.href, t) } })(); addEventListener("DOMContentLoaded", () => { const r = document.getElementById("header"), n = document.getElementById("content").children; let e = r.getBoundingClientRect().height; for (const t of n) { const o = t.getBoundingClientRect().height; if (e + o > 1e3) { e = 0; const i = document.createElement("div"); i.className = "page-break", t.before(i) } e += o } });</script>
+  <script>
+    addEventListener('DOMContentLoaded', function () {
+      const MAX_PAGE_HEIGHT = 1100;
+      const header = document.getElementById('header');
+      const content = document.getElementById('content');
+
+      let offsetTop = header.getBoundingClientRect().height;
+      let elm = header;
+
+      for (const nextElm of content.children) {
+        const h = nextElm.getBoundingClientRect().height;
+
+        if (offsetTop + h > MAX_PAGE_HEIGHT) {
+          console.log('page break', offsetTop, h, nextElm.tagName);
+          offsetTop = 0;
+          const pageBreak = document.createElement('div');
+          pageBreak.className = 'page-break';
+          if (['H1', 'H2', 'H3', 'H4'].includes(elm.tagName)) {
+            elm.before(pageBreak);
+            offsetTop = elm.getBoundingClientRect().height;
+          }
+          else {
+            elm.after(pageBreak);
+          }
+        }
+
+        offsetTop += h;
+        elm = nextElm;
+      }
+    });
+  </script>
 
   <style rel="stylesheet" crossorigin>
     * {
@@ -16,7 +45,7 @@
     }
 
     :root {
-      --page-margin: 8mm;
+      --page-margin: 12px;
     }
 
     html,
@@ -26,42 +55,49 @@
 
     body {
       font-family: Arial, sans-serif;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1.5;
+    }
+
+    a,
+    a:visited {
+      color: #023e8a;
+      text-decoration: none;
+      font-weight: 500;
     }
 
     #main {
       width: 210mm;
-      margin: 3em auto;
+      margin: 3rem auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: #333 0 0 1em;
+      box-shadow: #333 0 0 1rem;
       text-align: justify;
       color: #333;
     }
 
     #header {
       width: 100%;
-      padding: 1em var(--page-margin);
+      padding: 1rem var(--page-margin);
       background-color: #faedcd;
     }
 
     #header img {
-      height: 160px;
-      width: 160px;
+      height: 10rem;
+      width: 10rem;
       border-radius: 50%;
-      margin: 1em 0;
+      margin: 1rem 0;
     }
 
     #header .vsep {
-      height: 5em;
-      margin-right: 2em;
+      height: 5rem;
+      margin-right: 2rem;
     }
 
     #header h2 {
       color: #666;
-      padding: .5em 0;
+      padding: .5rem 0;
     }
 
     #contact table {
@@ -75,7 +111,7 @@
 
     #contact td:first-child {
       font-weight: bold;
-      padding-right: 1em;
+      padding-right: 1rem;
     }
 
     #contact {
@@ -88,22 +124,22 @@
     }
 
     #content h2 {
-      padding: .5em 0 .1em 0;
+      padding-top: 1rem;
     }
 
     #content h3 {
-      margin-top: -.3em;
-      padding-bottom: .2em;
+      margin-top: -.3rem;
+      padding-bottom: .2rem;
     }
 
     #content h4 {
       color: #666;
-      padding-bottom: .2em;
+      padding-bottom: .2rem;
     }
 
     #content ul {
-      padding-top: .5em;
-      padding-left: 1em;
+      padding-top: .5rem;
+      padding-left: 1rem;
     }
 
     .grid {
@@ -120,8 +156,8 @@
 
     .vsep {
       border-left: 1px solid #ccc;
-      height: 1em;
-      margin: 0 1em;
+      height: 1rem;
+      margin: 0 1rem;
     }
 
     .row {
@@ -142,17 +178,13 @@
       align-items: center;
     }
 
-    .pad-v {
-      padding: 1em 0;
+    .pad-top {
+      padding-top: 1rem;
     }
 
     .page-break {
-      border-bottom: 2px dashed #666;
+      border-bottom: 1px dashed #666;
       page-break-after: always;
-    }
-
-    h2:has(+.page-break) {
-      page-break-before: always;
     }
 
     @page {
@@ -167,6 +199,7 @@
       }
 
       .page-break {
+        height: 0;
         border: none;
       }
     }
@@ -218,7 +251,7 @@
       <h2>Work Experience</h2>
 
       {% for w in work %}
-      <div class="grid wide pad-v">
+      <div class="grid wide pad-top">
         <div>{{w.startDate}} - {{w.endDate}}</div>
         <div>
           <h3>{{w.position}} @ {{w.employer}}</h3>
@@ -236,7 +269,7 @@
       <h2>Education</h2>
 
       {% for e in education %}
-      <div class="grid wide pad-v">
+      <div class="grid wide pad-top">
         <div>{{e.startDate}} - {{e.endDate}}</div>
         <div>
           <h3>{{e.degree}} in {{e.field}} @ {{e.institute}}</h3>
@@ -255,7 +288,7 @@
       <h2>Selected Publication</h2>
 
       {% for p in publications %}
-      <div class="grid narrow pad-v">
+      <div class="grid narrow pad-top">
         <div>{{p.year}}</div>
         <div>
           <h3>{{p.title}}</h3>
