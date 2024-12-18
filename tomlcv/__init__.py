@@ -114,10 +114,6 @@ def tomlcv(
 
     resume = con.structure(resume, cv)
     resume = con.unstructure(resume)
-    # img = resume['basics']['image']
-
-    # with open(img, 'rb') as f:
-    #     resume['basics']['image'] = base64.encodebytes(f.read()).decode()
 
     template = env.from_string(res2str('cv.j2'))
 

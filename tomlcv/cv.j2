@@ -83,8 +83,8 @@
     }
 
     #header img {
-      height: 10rem;
-      width: 10rem;
+      height: 9rem;
+      width: 9rem;
       border-radius: 50%;
       margin: 1rem 0;
     }
@@ -111,6 +111,7 @@
     #contact td:first-child {
       font-weight: bold;
       padding-right: 1rem;
+      text-align: right;
     }
 
     #contact {
@@ -141,9 +142,24 @@
       padding-left: 1rem;
     }
 
+    #skills {
+      width: 100%;
+    }
+
+    #skills td {
+      padding-top: 1rem;
+    }
+
+    #skills td:first-child {
+      text-align: right;
+      white-space: nowrap;
+      padding-right: 1rem;
+      vertical-align: top;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: 10rem 1fr;
+      grid-template-columns: 9rem 1fr;
     }
 
     .vsep {
@@ -227,6 +243,10 @@
               <td>Website</td>
               <td><a href="{{contact.website}}">{{contact.website}}</a></td>
             </tr>
+            <tr>
+              <td>dblp</td>
+              <td><a href="{{contact.dblp}}">{{contact.dblp}}</a></td>
+            </tr>
           </table>
         </div>
       </div>
@@ -306,14 +326,18 @@
 
       <h2>Skills</h2>
 
-      {% for skill in skills %}
-      <div class="grid pad top">
-        <div><strong>{{skill.name}}</strong></div>
-        <div>
-          <p>{{skill.description}}</p>
-        </div>
-      </div>
-      {% endfor %}
+      <table id="skills">
+        {% for skill in skills %}
+        <tr>
+          <td>
+            <strong>{{skill.name}}</strong>
+          </td>
+          <td>
+            <p>{{skill.description}}</p>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
 
 
     </div>
