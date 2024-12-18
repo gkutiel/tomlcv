@@ -5,6 +5,9 @@ description = ""
 authors = ["Gilad Kutiel <gilad.kutiel@gmail.com>"]
 readme = "README.md"
 
+[tool.poetry.group.dev.dependencies]
+pygments = "^2.18.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
