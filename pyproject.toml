@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tomlcv"
-version = "0.0.4"
+version = "0.0.5"
 description = ""
 authors = ["Gilad Kutiel <gilad.kutiel@gmail.com>"]
 readme = "README.md"
