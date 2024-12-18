@@ -85,7 +85,8 @@ def tomlcv(
         *,
         in_toml: str = 'cv.toml',
         out_html: str = 'docs/index.html',
-        date_format: str = "%b %Y"):
+        date_format: str = "%b %Y",
+        page_break: bool = False):
 
     Path(out_html).parent.mkdir(
         parents=True,
@@ -106,7 +107,6 @@ def tomlcv(
     env.filters['date'] = format_date
 
     resume = toml.load(in_toml)
-    print(resume)
 
     con = Converter()
     con.register_unstructure_hook(date, date2str)
@@ -117,7 +117,9 @@ def tomlcv(
 
     template = env.from_string(res2str('cv.j2'))
 
-    resume_html = template.render(resume)
+    resume_html = template.render(
+        resume,
+        page_break=page_break)
 
     with open(out_html, 'w') as f:
         f.write(resume_html)
