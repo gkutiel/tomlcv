@@ -194,6 +194,55 @@
                     }
                 }
             }
+        },
+        "projects": {
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "description",
+                    "url"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "e.g. socily"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "e.g. A social media platform for sharing photos"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "e.g. https://myproject.com"
+                    }
+                }
+            }
+        },
+        "skills": {
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "description"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "e.g. Python"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "e.g. 10 years of experience"
+                    }
+                }
+            }
         }
     }
 }

@@ -73,7 +73,6 @@
       flex-direction: column;
       align-items: center;
       box-shadow: #333 0 0 1rem;
-      text-align: justify;
       color: #333;
     }
 
@@ -144,14 +143,7 @@
 
     .grid {
       display: grid;
-    }
-
-    .grid.wide {
-      grid-template-columns: 9rem 1fr;
-    }
-
-    .grid.narrow {
-      grid-template-columns: 4rem 1fr;
+      grid-template-columns: 10rem 1fr;
     }
 
     .vsep {
@@ -178,7 +170,7 @@
       align-items: center;
     }
 
-    .pad-top {
+    .pad.top {
       padding-top: 1rem;
     }
 
@@ -251,7 +243,7 @@
       <h2>Work Experience</h2>
 
       {% for w in work %}
-      <div class="grid wide pad-top">
+      <div class="grid pad top">
         <div>{{w.startDate}} - {{w.endDate}}</div>
         <div>
           <h3>{{w.position}} @ {{w.employer}}</h3>
@@ -269,7 +261,7 @@
       <h2>Education</h2>
 
       {% for e in education %}
-      <div class="grid wide pad-top">
+      <div class="grid pad top">
         <div>{{e.startDate}} - {{e.endDate}}</div>
         <div>
           <h3>{{e.degree}} in {{e.field}} @ {{e.institute}}</h3>
@@ -288,7 +280,7 @@
       <h2>Selected Publication</h2>
 
       {% for p in publications %}
-      <div class="grid narrow pad-top">
+      <div class="grid pad top">
         <div>{{p.year}}</div>
         <div>
           <h3>{{p.title}}</h3>
@@ -297,6 +289,32 @@
         </div>
       </div>
       {% endfor %}
+
+
+      <h2>Projects</h2>
+
+      {% for project in projects %}
+      <div class="grid pad top">
+        <div><strong>{{project.name}}</strong></div>
+        <div>
+          <a href="{{project.url}}">{{project.url}}</a>
+          <p>{{project.description}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      <h2>Skills</h2>
+
+      {% for skill in skills %}
+      <div class="grid pad top">
+        <div><strong>{{skill.name}}</strong></div>
+        <div>
+          <p>{{skill.description}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
 
     </div>
   </main>

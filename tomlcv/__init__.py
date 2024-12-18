@@ -55,6 +55,19 @@ class publication:
 
 
 @dataclass
+class project:
+    name: str
+    description: str
+    url: str
+
+
+@dataclass
+class skill:
+    name: str
+    description: str
+
+
+@dataclass
 class cv:
     image: str
     name: str
@@ -64,6 +77,8 @@ class cv:
     work: list[work]
     education: list[education]
     publications: list[publication]
+    projects: list[project]
+    skills: list[skill]
 
 
 def tomlcv(
