@@ -1,0 +1,66 @@
+#:schema ./cv-schema.json
+
+image = "mark.jpg"
+name = "Mark Zuckerberg"
+title = "CEO and Founder"
+summary = """
+I am the founder and CEO of Meta Platforms, leading the company since 2004 to become a global leader in social media, virtual reality, and innovation.
+"""
+
+[contact]
+email = "mark.zuckerberg@meta.com"
+phone = "+1-650-543-4800"
+linkedin = "https://linkedin.com/in/mark-zuckerberg/"
+website = "https://meta.com"
+dblp = "https://dblp.org/pid/47/4878.html"
+
+[[work]]
+startDate = 2004-02-04
+endDate = 2024-12-18
+employer = "Meta Platforms (formerly Facebook, Inc.)"
+position = "Founder & CEO"
+summary = """
+Founded Facebook in 2004, revolutionizing online communication, and now lead Meta Platforms, focusing on the future of virtual reality, augmented reality, and the metaverse.
+"""
+highlights = [
+    "Grew Facebook to over 3 billion monthly active users.",
+    "Acquired major companies such as Instagram, WhatsApp, and Oculus."]
+
+[[education]]
+startDate = 2002-09-01
+endDate = 2004-02-01
+degree = "Bachelor's Degree (incomplete)"
+field = "Computer Science and Psychology"
+institute = "Harvard University"
+gpa = 100
+summary = """
+Studied computer science and psychology at Harvard, focusing on algorithms, software development, and human-computer interaction, before leaving to develop Facebook.
+"""
+highlights = [
+    "Developed 'CourseMatch,' an early tool to help students select classes.",
+    "Laid the foundation for the world’s largest social networking platform."]
+
+
+[[publications]]
+year = 2022
+title = "On inequalities with bounded coefficients and pitch for the min knapsack polytope."
+publisher = "Discrete Optimization"
+summary = "This paper presents a new class of inequalities for the min knapsack polytope, which are based on the concept of bounded coefficients and pitch."
+
+[[projects]]
+name = "Facebook"
+description = "A revolutionary social networking platform that connects people worldwide."
+url = "https://facebook.com"
+
+[[skills]]
+name = "Leadership & Strategy"
+description = """
+Visionary leadership, business strategy, scaling global organizations, driving innovation, and fostering a collaborative company culture.
+"""
+
+[[skills]]
+name = "Software Development"
+description = """
+Full-stack development, web application design, scalable architectures, and system optimization.
+"""
+
