@@ -1,458 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+<html><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="preload" as="image" href="gilad.jpg"/><title>Gilad Kutiel | PhD, Applied Scientist</title><style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+:root {
+    --page-margin: 12px;
+}
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+html,
+body {
+    padding: 0;
+}
 
-    .mono {
-      font-family: 'Roboto Mono', monospace;
-      padding: 2em 0;
-    }
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+a,
+a:visited {
+    color: #023e8a;
+    text-decoration: none;
+    font-weight: 500;
+}
 
-    :root {
-      --page-margin: 12px;
-    }
+#main {
+    width: 210mm;
+    margin: 0 auto;
+    color: #333;
+}
 
-    html,
-    body {
-      padding: 0;
-    }
+#header {
+    background-color: #faedcd;
+    padding: 1rem;
+}
 
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+#header img {
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+}
 
-    main {
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-      line-height: 1.5;
-    }
+#header h2 {
+    color: #666;
+    padding: .5rem 0;
+}
 
-    a,
-    a:visited {
-      color: #023e8a;
-      text-decoration: none;
-      font-weight: 500;
-    }
+#contact table {
+    border-collapse: collapse;
+    margin-left: 1rem;
+}
 
+#contact td {
+    line-height: 1.5;
+    border: none;
+}
+
+#contact td:first-child {
+    font-weight: bold;
+    padding-right: 1rem;
+    text-align: right;
+}
+
+.row,
+.col {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+}
+
+.gap {
+    gap: 1rem;
+}
+
+.sep {
+    align-self: stretch;
+}
+
+.row .sep {
+    margin: 10% 3rem;
+    border-left: 1px solid #ccc;
+}
+
+.small {
+    font-size: 12px;
+}
+
+.large {
+    font-size: 15px;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
     #main {
-      width: 210mm;
-      margin: 3rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: #333 0 0 1rem;
-      color: #333;
+        margin: 0;
     }
-
-    #header {
-      width: 100%;
-      padding: 1rem var(--page-margin);
-      background-color: #faedcd;
-    }
-
-    #header img {
-      height: 9rem;
-      width: 9rem;
-      border-radius: 50%;
-      margin: 1rem 0;
-    }
-
-    #header .vsep {
-      height: 5rem;
-      margin-right: 2rem;
-    }
-
-    #header h2 {
-      color: #666;
-      padding: .5rem 0;
-    }
-
-    #contact table {
-      border-collapse: collapse;
-    }
-
-    #contact td {
-      padding: 2px 0;
-      border: none;
-    }
-
-    #contact td:first-child {
-      font-weight: bold;
-      padding-right: 1rem;
-      text-align: right;
-    }
-
-    #contact {
-      font-size: small;
-    }
-
-    #content {
-      padding: 0 var(--page-margin);
-      padding-bottom: var(--page-margin);
-    }
-
-    #content h2 {
-      padding-top: 1rem;
-    }
-
-    #content h3 {
-      margin-top: -.3rem;
-      padding-bottom: .2rem;
-    }
-
-    #content h4 {
-      color: #666;
-      padding-bottom: .2rem;
-    }
-
-    #content ul {
-      padding-top: .5rem;
-      padding-left: 1rem;
-    }
-
-    #skills {
-      width: 100%;
-    }
-
-    #skills td {
-      padding-top: 1rem;
-    }
-
-    #skills td:first-child {
-      text-align: right;
-      white-space: nowrap;
-      padding-right: 1rem;
-      vertical-align: top;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 9rem 1fr;
-    }
-
-    .vsep {
-      border-left: 1px solid #ccc;
-      height: 1rem;
-      margin: 0 1rem;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .row.center {
-      align-items: center;
-    }
-
-    .col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .col.center {
-      align-items: center;
-    }
-
-    .pad.top {
-      padding-top: 1rem;
-    }
-
-    .page-break {
-      page-break-after: always;
-    }
-
-    .highlight {
-      width: 80em;
-      box-shadow: #333 0 0 1rem;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-size: .8rem;
-      padding: 1rem;
-      background-color: #222;
-      color: #f8f8f2;
-      border: 1px solid #333;
-      border-radius: 5px;
-    }
-
-    .s2 {
-      color: #e6db74
-    }
-
-    .k {
-      color: #66d9ef
-    }
-
-    .mi {
-      color: #ae81ff
-    }
-
-    .ld {
-      color: #ae81ff
-    }
-
-    .w {
-      color: #f8f8f2
-    }
-
-    .o {
-      color: #ff4689
-    }
-
-    #cmd {
-      margin-top: 2rem;
-      width: 20rem;
-    }
-  </style>
-
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
-  <title>Mark Zuckerberg | CEO and Founder</title>
-</head>
-
-<body>
-  <div class="mono">
-    <h1>cv.toml</h1>
-    <p>Write your resume in toml and convert it to a beautiful, printable html.</p>
-  </div>
-
-  </div>
-
-  <div class="highlight">
-    <pre>
-<span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mark.jpg&quot;</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Mark Zuckerberg&quot;</span>
-<span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CEO and Founder&quot;</span>
-<span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">I am the founder and CEO of Meta Platforms, leading the company since 2004 to become a global leader in social media, virtual reality, and innovation.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="k">[contact]</span>
-<span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mark.zuckerberg@meta.com&quot;</span>
-<span class="n">phone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;+1-650-543-4800&quot;</span>
-<span class="n">linkedin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://linkedin.com/in/mark-zuckerberg/&quot;</span>
-<span class="n">website</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://meta.com&quot;</span>
-<span class="n">dblp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://dblp.org/pid/47/4878.html&quot;</span>
-
-<span class="k">[[work]]</span>
-<span class="n">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">2004-02-04</span>
-<span class="n">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">2024-12-18</span>
-<span class="n">employer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Meta Platforms (formerly Facebook, Inc.)&quot;</span>
-<span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Founder &amp; CEO&quot;</span>
-<span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Founded Facebook in 2004, revolutionizing online communication, and now lead Meta Platforms, focusing on the future of virtual reality, augmented reality, and the metaverse.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">highlights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;Grew Facebook to over 3 billion monthly active users.&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Acquired major companies such as Instagram, WhatsApp, and Oculus.&quot;</span><span class="p">]</span>
-
-<span class="k">[[education]]</span>
-<span class="n">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">2002-09-01</span>
-<span class="n">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">2004-02-01</span>
-<span class="n">degree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Bachelor&#39;s Degree (incomplete)&quot;</span>
-<span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Computer Science and Psychology&quot;</span>
-<span class="n">institute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Harvard University&quot;</span>
-<span class="n">gpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-<span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Studied computer science and psychology at Harvard, focusing on algorithms, software development, and human-computer interaction, before leaving to develop Facebook.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">highlights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;Developed &#39;CourseMatch,&#39; an early tool to help students select classes.&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Laid the foundation for the world’s largest social networking platform.&quot;</span><span class="p">]</span>
-
-
-<span class="k">[[publications]]</span>
-<span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2022</span>
-<span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;On inequalities with bounded coefficients and pitch for the min knapsack polytope.&quot;</span>
-<span class="n">publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Discrete Optimization&quot;</span>
-<span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;This paper presents a new class of inequalities for the min knapsack polytope, which are based on the concept of bounded coefficients and pitch.&quot;</span>
-
-<span class="k">[[projects]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Facebook&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A revolutionary social networking platform that connects people worldwide.&quot;</span>
-<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://facebook.com&quot;</span>
-
-<span class="k">[[skills]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Leadership &amp; Strategy&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Visionary leadership, business strategy, scaling global organizations, driving innovation, and fostering a collaborative company culture.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="k">[[skills]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Software Development&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Full-stack development, web application design, scalable architectures, and system optimization.</span>
-<span class="s2">&quot;&quot;&quot;</span></pre>
-  </div>
-
-  <div id="cmd">
-    <pre>&gt; pip install tomlcv <span class="o">&amp;&amp;</span> tomlcv</pre>
-  </div>
-
-  <main id="main">
-    <header id="header" class="row center">
-      <div class="col center">
-        <img src="mark.jpg" alt="Mark Zuckerberg">
-        <div id="contact">
-          <table>
-            <tr>
-              <td>Email</td>
-              <td><a href="mailto:mark.zuckerberg@meta.com">mark.zuckerberg@meta.com</a></td>
-            </tr>
-            <tr>
-              <td>Phone</td>
-              <td>
-                <a href="tel:+1-650-543-4800">+1-650-543-4800</a>
-              </td>
-            </tr>
-            <tr>
-              <td>LinkedIn</td>
-              <td><a href="https://linkedin.com/in/mark-zuckerberg/">https://linkedin.com/in/mark-zuckerberg/</a></td>
-            </tr>
-            <tr>
-              <td>Website</td>
-              <td><a href="https://meta.com">https://meta.com</a></td>
-            </tr>
-            <tr>
-              <td>dblp</td>
-              <td><a href="https://dblp.org/pid/47/4878.html">https://dblp.org/pid/47/4878.html</a></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="vsep"></div>
-      <div class="col">
-        <h1>Mark Zuckerberg</h1>
-        <h2>CEO and Founder</h2>
-        <p>I am the founder and CEO of Meta Platforms, leading the company since 2004 to become a global leader in
-          social media, virtual reality, and innovation.
-        </p>
-      </div>
-    </header>
-
-    <div id="content">
-
-      <h2>Work Experience</h2>
-
-
-      <div class="grid pad top">
-        <div>Feb 2004 - Dec 2024</div>
-        <div>
-          <h3>Founder & CEO @ Meta Platforms (formerly Facebook, Inc.)</h3>
-          <p>Founded Facebook in 2004, revolutionizing online communication, and now lead Meta Platforms, focusing on
-            the future of virtual reality, augmented reality, and the metaverse.
-          </p>
-          <ul>
-
-            <li>Grew Facebook to over 3 billion monthly active users.</li>
-
-            <li>Acquired major companies such as Instagram, WhatsApp, and Oculus.</li>
-
-          </ul>
-        </div>
-      </div>
-
-
-
-      <h2>Education</h2>
-
-
-      <div class="grid pad top">
-        <div>Sep 2002 - Feb 2004</div>
-        <div>
-          <h3>Bachelor's Degree (incomplete) in Computer Science and Psychology @ Harvard University</h3>
-          <p>Studied computer science and psychology at Harvard, focusing on algorithms, software development, and
-            human-computer interaction, before leaving to develop Facebook.
-          </p>
-          <ul>
-            <li>GPA: 100.0</li>
-
-            <li>Developed 'CourseMatch,' an early tool to help students select classes.</li>
-
-            <li>Laid the foundation for the world’s largest social networking platform.</li>
-
-          </ul>
-        </div>
-      </div>
-
-
-
-      <h2>Selected Publication</h2>
-
-
-      <div class="grid pad top">
-        <div>2022</div>
-        <div>
-          <h3>On inequalities with bounded coefficients and pitch for the min knapsack polytope.</h3>
-          <h4>Discrete Optimization</h4>
-          <p>This paper presents a new class of inequalities for the min knapsack polytope, which are based on the
-            concept of bounded coefficients and pitch.</p>
-        </div>
-      </div>
-
-
-
-      <h2>Projects</h2>
-
-
-      <div class="grid pad top">
-        <div>
-          <strong>Facebook</strong>
-        </div>
-        <div>
-          <p>A revolutionary social networking platform that connects people worldwide.</p>
-          <a href="https://facebook.com">https://facebook.com</a>
-        </div>
-      </div>
-
-
-
-      <h2>Skills</h2>
-
-      <table id="skills">
-
-        <tr>
-          <td>
-            <strong>Leadership & Strategy</strong>
-          </td>
-          <td>
-            <p>Visionary leadership, business strategy, scaling global organizations, driving innovation, and fostering
-              a collaborative company culture.
-            </p>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <strong>Software Development</strong>
-          </td>
-          <td>
-            <p>Full-stack development, web application design, scalable architectures, and system optimization.
-            </p>
-          </td>
-        </tr>
-
-      </table>
-
-
-    </div>
-  </main>
-</body>
-
-</html>
+}</style></head><body><main id="main"><header id="header" class="row center"><div class="col gap center"><img src="gilad.jpg" alt="Gilad Kutiel"/><div id="contact"><table><tr><td>Email</td><td><a href="mailto:gilad.kutiel@gmail.com">gilad.kutiel@gmail.com</a></td></tr><tr><td>Phone</td><td><a href="tel:+972-55-8858766">+972-55-8858766</a></td></tr><tr><td>LinkedIn</td><td><a href="https://linkedin.com/in/kutiel/">https://linkedin.com/in/kutiel/</a></td></tr><tr><td>Website</td><td><a href="https://kutiel.com">https://kutiel.com</a></td></tr><tr><td>dblp</td><td><a href="https://dblp.org/pid/56/8210.html">https://dblp.org/pid/56/8210.html</a></td></tr></table></div></div><div class="sep"></div><div><h1>Gilad Kutiel</h1><h2>PhD, Applied Scientist</h2><p class="large">I hold a PhD in computer science and have more than 20 years of experience in software development. 
+Over the course of my career, I have developed expertise in natural language processing (NLP), large language models (LLM), and computer vision (CV). 
+I have previously worked at top-tier companies such as Google, Facebook, and Amazon.
+</p></div></header></main></body></html>

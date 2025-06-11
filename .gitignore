@@ -4,5 +4,7 @@ dist
 *.pdf
 *.bu
 
+gilad.jpg
+node_modules
 
 __pycache__

@@ -1,0 +1,24 @@
+{
+  "name": "yamlcv",
+  "version": "0.0.0",
+  "description": "Wirte your CV in YAML and convert it to HTML or PDF",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Gilad Kutiel",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "json-schema-to-typescript": "^15.0.4",
+    "tsx": "^4.20.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "yaml": "^2.8.0"
+  }
+}

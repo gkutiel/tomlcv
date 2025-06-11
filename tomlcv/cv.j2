@@ -5,46 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script>
-    addEventListener('DOMContentLoaded', function () {
-      const MAX_PAGE_HEIGHT = 1100;
-      const header = document.getElementById('header');
-      const content = document.getElementById('content');
-
-      let offsetTop = header.getBoundingClientRect().height;
-      let elm = header;
-
-      for (const nextElm of content.children) {
-        const h = nextElm.getBoundingClientRect().height;
-
-        if (offsetTop + h > MAX_PAGE_HEIGHT) {
-          console.log('page break', offsetTop, h, nextElm.tagName);
-          offsetTop = 0;
-          const pageBreak = document.createElement('div');
-          pageBreak.className = 'page-break';
-          if (['H1', 'H2', 'H3', 'H4'].includes(elm.tagName)) {
-            elm.before(pageBreak);
-            offsetTop = elm.getBoundingClientRect().height;
-          }
-          else {
-            elm.after(pageBreak);
-          }
-        }
-
-        offsetTop += h;
-        elm = nextElm;
-      }
-    });
-  </script>
-
-  {% if page_break %}
-  <style>
-    .page-break {
-      border-bottom: 1px solid #ccc;
-    }
-  </style>
-  {% endif %}
-
   <style>
     * {
       box-sizing: border-box;
@@ -212,11 +172,6 @@
       #main {
         margin: 0;
         box-shadow: none;
-      }
-
-      .page-break {
-        height: 0;
-        border: none;
       }
     }
   </style>

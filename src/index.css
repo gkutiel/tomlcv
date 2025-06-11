@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+:root {
+    --page-margin: 12px;
+}
+
+html,
+body {
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+a,
+a:visited {
+    color: #023e8a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#main {
+    width: 210mm;
+    margin: 0 auto;
+    color: #333;
+}
+
+#header {
+    background-color: #faedcd;
+    padding: 1rem;
+}
+
+#header img {
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+}
+
+#header h2 {
+    color: #666;
+    padding: .5rem 0;
+}
+
+#contact table {
+    border-collapse: collapse;
+    margin-left: 1rem;
+}
+
+#contact td {
+    line-height: 1.5;
+    border: none;
+}
+
+#contact td:first-child {
+    font-weight: bold;
+    padding-right: 1rem;
+    text-align: right;
+}
+
+.row,
+.col {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+}
+
+.gap {
+    gap: 1rem;
+}
+
+.sep {
+    align-self: stretch;
+}
+
+.row .sep {
+    margin: 10% 3rem;
+    border-left: 1px solid #ccc;
+}
+
+.small {
+    font-size: 12px;
+}
+
+.large {
+    font-size: 15px;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    #main {
+        margin: 0;
+    }
+}

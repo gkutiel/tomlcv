@@ -3,8 +3,8 @@ from datetime import date
 from importlib.resources import open_text
 from pathlib import Path
 
-import toml
 import typer
+import yaml
 from cattr import Converter
 from jinja2 import Environment, StrictUndefined
 from rich import print
@@ -81,10 +81,11 @@ class cv:
     skills: list[skill]
 
 
-def tomlcv(
+def yamlcv(
+        in_yaml: str,
         *,
-        in_toml: str = 'cv.toml',
         out_html: str = 'docs/index.html',
+        out_pdf: str = 'docs/index.pdf',
         date_format: str = "%b %Y",
         page_break: bool = False):
 
@@ -106,7 +107,8 @@ def tomlcv(
 
     env.filters['date'] = format_date
 
-    resume = toml.load(in_toml)
+    with open(in_yaml) as f:
+        resume = yaml.safe_load(f)
 
     con = Converter()
     con.register_unstructure_hook(date, date2str)
@@ -124,8 +126,8 @@ def tomlcv(
     with open(out_html, 'w') as f:
         f.write(resume_html)
 
-    print(f'{in_toml} -> {out_html}')
+    print(f'{in_yaml} -> {out_html}')
 
 
 def main():
-    typer.run(tomlcv)
+    typer.run(yamlcv)
