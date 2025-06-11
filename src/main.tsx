@@ -37,6 +37,21 @@ program
             skills
         } = yaml.parse(await readFile(cvYaml, "utf8")) as CV
 
+        console.log()
+        console.log(summary)
+
+        console.log()
+        console.log('Education')
+        education.forEach(e => {
+            console.log(`${e.institute}, ${e.degree} in ${e.field}, ${date(e.startDate)} - ${date(e.endDate)}`)
+        })
+
+        console.log()
+        console.log('Work Experience')
+        work.forEach(w => {
+            console.log(`${w.employer}, ${w.position}, ${date(w.startDate)} - ${date(w.endDate)}`)
+        })
+
         const html = <html>
             <head>
                 <meta charSet="UTF-8" />
@@ -188,7 +203,7 @@ program
                                 <h2>Skills</h2>
                                 <table id="skills">
                                     {skills.map((s, i) =>
-                                        <tr>
+                                        <tr key={i}>
                                             <td className="nowrap top" style={{
                                                 padding: '6px 24px 0 0',
                                                 fontWeight: 'bold'
