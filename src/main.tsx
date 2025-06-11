@@ -24,7 +24,15 @@ program
         console.log(`Processing CV file: ${cvYaml}`)
 
         const style = await readFile("src/index.css", "utf8")
-        const { image, name, title, contact, summary, work } = yaml.parse(await readFile(cvYaml, "utf8")) as CV
+        const {
+            image,
+            name,
+            title,
+            contact,
+            summary,
+            work,
+            education,
+        } = yaml.parse(await readFile(cvYaml, "utf8")) as CV
 
         const html = <html>
             <head>
@@ -79,8 +87,8 @@ program
                         <table>
                             <tbody>
                                 {
-                                    work.map((w, index) => (
-                                        <tr>
+                                    work.map((w, i) => (
+                                        <tr key={i}>
                                             <td className="nowrap top" style={{ padding: '6px 24px 0 0' }}>{date(w.startDate)} - {date(w.endDate)}</td>
                                             <td style={{ paddingBottom: 20 }}>
                                                 <h3>{w.position} @ {w.employer}</h3>
@@ -97,9 +105,33 @@ program
                             </tbody>
                         </table>
 
+                        <h2>Education</h2>
+                        <table>
+                            <tbody>
+                                {
+                                    education.map((e, i) => (
+                                        <tr key={i}>
+                                            <td className="nowrap top" style={{ padding: '6px 24px 0 0' }}>{date(e.startDate)} - {date(e.endDate)}</td>
+                                            <td style={{ paddingBottom: 20 }}>
+                                                <h3>{e.degree} in  {e.field} @ {e.institute}</h3>
+                                                <p>{e.summary}</p>
+                                                <ul>
+                                                    <li key='gpa'>GPA: {e.gpa}</li>
+                                                    {
+                                                        e.highlights?.map((highlight, i) => (
+                                                            <li key={i}>{highlight}</li>
+                                                        ))
+                                                    }
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+
 
                         {/* <h2>Education</h2>
-                        {% for e in education %}
                         <div class="grid pad top">
                             <div>{{ e.startDate }} - {{ e.endDate }}</div>
                             <div>
@@ -112,8 +144,7 @@ program
                                     {% endfor %}
                                 </ul>
                             </div>
-                        </div>
-                        {% endfor %} */}
+                        </div> */}
 
 
                         {/* <h2>Selected Publication</h2>

@@ -20,6 +20,10 @@ body {
     font-size: 14px;
 }
 
+h1 {
+    font-size: 32px;
+}
+
 a,
 a:visited {
     color: #023e8a;
@@ -44,14 +48,19 @@ a:visited {
     border-radius: 50%;
 }
 
-#header h2 {
-    color: #666;
-    padding: .5rem 0;
-}
-
 #contact table {
     border-collapse: collapse;
     margin-left: 1rem;
+}
+
+/* CONTENT */
+h2 {
+    font-size: 24px;
+    margin: .5rem 0
+}
+
+#content h2 {
+    margin: 1rem 0;
 }
 
 #contact td {
