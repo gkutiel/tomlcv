@@ -4,12 +4,10 @@ image: gilad.jpg
 name: Gilad Kutiel
 title: PhD, Applied Scientist
 summary: >
-  I hold a PhD in computer science and have more than 20 years of experience in
-  software development. 
-
-  Over the course of my career, I have developed expertise in natural language processing (NLP), large language models (LLM), and computer vision (CV). 
-
-  I have previously worked at top-tier companies such as Google, Facebook, and Amazon.
+  I hold a PhD in Computer Science and bring over 20 years of experience in software engineering.
+  My expertise lies in natural language processing (NLP), large language models (LLMs), and computer vision (CV),
+  with a strong focus on building scalable, research-driven systems.
+  I have contributed to top-tier tech companies including Google, Facebook, Amazon, and Mobileye.
 
 contact:
   email: gilad.kutiel@gmail.com
@@ -19,101 +17,102 @@ contact:
   dblp: https://dblp.org/pid/56/8210.html
 
 work:
+  - startDate: 2025-01-01
+    endDate: 2025-01-06
+    employer: yomyomyoga.com
+    position: Founder & Builder
+    summary: >
+      Created smart digital tools to empower yoga teachers in building vibrant, sustainable communities.
+      Developed features including personalized memberships, loyalty rewards, and class scheduling integration.
+    highlights:
+      - Designed end-to-end product architecture for teacher-focused SaaS tools.
+      - Built integrations with booking systems to streamline scheduling.
+
   - startDate: 2023-10-10
     endDate: 2024-09-22
     employer: Mobileye
     position: Algorithm Engineer
     summary: >
-      As a member of the Driver Monitoring System (DMS) team, I develop and
-      maintain critical components, including driver and face detection models. 
-
-      Additionally, I design and implement generative models to enhance and expand our datasets.
-    highlights: []
+      Contributed to the Driver Monitoring System (DMS) team by developing key components such as face and driver detection models,
+      and designing generative models to augment training datasets.
+    highlights:
+      - Developed real-time face detection models optimized for in-vehicle environments.
+      - Created synthetic data pipelines using generative models.
 
   - startDate: 2022-02-01
     endDate: 2023-04-01
     employer: Verily
     position: Research Scientist
     summary: >
-      I developed a framework to estimate uncertainty in image-to-image
-      reconstruction, addressing the challenges of quantifying uncertainty in
-      both regression and generative models.
+      Built a novel framework for uncertainty quantification in image-to-image reconstruction tasks,
+      improving the interpretability and robustness of generative vision models.
     highlights:
-      - Developed a new framework for uncertainty estimation in image-to-image
-        reconstruction.
-      - "Published a paper on this work titled: What's Behind the Mask:
-        Estimating Uncertainty in Image-to-Image Problems."
+      - Developed Bayesian-style methods for modeling uncertainty.
+      - "Published a paper: What's Behind the Mask: Estimating Uncertainty in Image-to-Image Problems."
 
   - startDate: 2019-04-01
     endDate: 2021-10-01
     employer: Amazon
     position: Applied Scientist
     summary: >
-      As part of the Alexa Shopping team, I used large language models (LLMs) to
-      summarize product reviews.
+      Worked on the Alexa Shopping team using large language models to extract helpful insights from product reviews.
     highlights:
-      - Deployed large language models (LLMs) to summarize product reviews.
-      - "Published a paper on this work titled: Identifying Helpful Sentences in
-        Product Reviews."
+      - Built review summarization models to improve customer decision-making.
+      - "Published a paper: Identifying Helpful Sentences in Product Reviews."
 
   - startDate: 2017-03-01
     endDate: 2019-03-01
     employer: Technion
     position: Lecturer
     summary: >
-      Taught foundational concepts in algorithms, including design, analysis,
-      and optimization, to undergraduate students.
-    highlights: []
+      Taught core algorithmic concepts including design, analysis, and optimization to undergraduate students.
+    highlights:
+      - Delivered lectures to large cohorts, improving exam scores and student satisfaction.
 
   - startDate: 2014-10-01
     endDate: 2017-03-01
     employer: Technion
     position: Teaching Assistant in Charge
     summary: >
-      Led and managed teaching activities for "Introduction to Algorithms" and
-      "Computability" including tutoring, grading, and assisting students with
-      course material.
-    highlights: []
+      Managed and led teaching activities for courses including "Introduction to Algorithms" and "Computability."
+    highlights:
+      - Supervised a team of TAs and coordinated lab sessions and grading.
 
   - startDate: 2012-12-01
     endDate: 2013-10-01
     employer: Google
     position: Software Engineer, Emerging Markets Group
     summary: >
-      Designed and developed web services optimized for low-end mobile devices,
-      ensuring seamless functionality under constraints such as limited
-      bandwidth and processing power.
-    highlights: []
+      Built scalable web services for low-end mobile devices, targeting emerging markets with bandwidth and compute constraints.
+    highlights:
+      - Launched SMS-based and offline-first experiences for key apps.
 
   - startDate: 2011-12-01
     endDate: 2012-12-01
     employer: IBM
     position: Researcher, Social Technologies Team
     summary: >
-      Developed a trend detection algorithm for an enterprise activity stream
-      platform, enabling real-time insights into emerging patterns and user
-      engagement.
+      Designed a trend detection algorithm for enterprise activity streams, surfacing relevant insights in real time.
     highlights:
-      - "Published a paper on this work titled: Effective Trend Detection within
-        a Dynamic Search Context."
+      - "Published: Effective Trend Detection within a Dynamic Search Context."
 
   - startDate: 2011-09-01
+    endDate: 2011-11-01
     employer: Facebook
     position: Intern
-    endDate: 2011-11-01
     summary: >
-      Redesigned and rebuilt the messaging application for the Facebook Light
-      app, enhancing functionality and user experience for both feature phones
-      and smartphones.
-    highlights: []
+      Re-architected the messaging system for Facebook Light, improving UX across feature phones and smartphones.
+    highlights:
+      - Significantly reduced message latency on low-end devices.
 
   - startDate: 2004-03-01
     endDate: 2007-03-01
     employer: Intel
     position: Intern
-    summary: |
-      Developed location based web applications.
-    highlights: []
+    summary: >
+      Created location-based web applications.
+    highlights:
+      - Prototyped early web apps using geolocation APIs and AJAX.
 
 education:
   - startDate: 2014-10-01
@@ -121,12 +120,11 @@ education:
     degree: PhD
     field: Computer Science
     institute: Technion
-    summary: Developed Approximation algorithms for NP-hard optimization problems.
     gpa: 92.8
+    summary: Developed approximation algorithms for NP-hard optimization problems.
     highlights:
-      - "Thesis: Approximation Algorithms for Submodular Maximization and
-        Network Design Problems."
-      - Published 4 conference papers and 2 journal papers.
+      - "Thesis: Approximation Algorithms for Submodular Maximization and Network Design Problems."
+      - Published 4 conference papers and 2 journal articles.
 
   - startDate: 2008-01-01
     endDate: 2011-10-01
@@ -134,7 +132,7 @@ education:
     field: Computer Science
     institute: Technion
     gpa: 92.5
-    summary: Developed algorithms for resource allocation in cloud computing.
+    summary: Designed algorithms for resource allocation in cloud computing environments.
     highlights:
       - "Thesis: Cost-Aware Live Migration of Services in the Cloud"
 
@@ -144,72 +142,57 @@ education:
     field: Computer Science
     institute: Technion
     gpa: 88.8
-    summary: ""
+    summary: >
+      Completed comprehensive coursework in theoretical CS, software engineering, and system design.
     highlights: []
 
 publications:
   - year: 2023
     title: "Conformal Prediction Masks: Visualizing Uncertainty in Medical Imaging"
     publisher: Trustworthy Machine Learning for Healthcare Workshop at NeurIPS
-    summary: We present a method to generate interpretable uncertainty maps for
-      medical imaging. This approach enhances diagnostic transparency and
-      supports reliable decision-making in healthcare applications.
+    summary: Introduced a method for generating interpretable uncertainty maps to enhance diagnostic transparency.
 
   - year: 2021
     title: Identifying Helpful Sentences in Product Reviews
-    publisher:
-      Proceedings of the 2021 Conference of the North American Chapter of
-      the Association for Computational Linguistics
-    summary: We propose a method for identifying the most helpful sentences in
-      product reviews, enhancing review summarization and supporting informed
-      consumer decisions.
+    publisher: Proceedings of NAACL 2021
+    summary: Presented methods for extracting useful sentences to improve automated review summarization.
 
   - year: 2019
-    title:
-      Approximation Algorithms for Submodular Maximization and Network Design
-      Problems
+    title: Approximation Algorithms for Submodular Maximization and Network Design Problems
     publisher: Technion, Israel
-    summary: We propose approximation algorithms for submodular maximization and
-      network design problems, providing efficient solutions with performance
-      guarantees for complex optimization tasks.
+    summary: Developed efficient approximation algorithms with provable performance guarantees.
 
   - year: 2017
     title: Service Chain Placement in SDNs
-    publisher: Algorithmic Aspects of Cloud Computing - ALGOCLOUD
-    summary: We propose a method for service chain placement in Software-Defined
-      Networks (SDNs), optimizing the deployment of network services for
-      efficiency and scalability.
+    publisher: ALGOCLOUD
+    summary: Proposed an optimization method for placing service chains in software-defined networks.
 
   - year: 2017
     title: Local Search Algorithms for Maximum Carpool Matching
-    publisher: 25th Annual European Symposium on Algorithms
-    summary: We propose local search algorithms for the Maximum Carpool Matching
-      problem, offering efficient solutions to optimize carpool pairings and
-      improve overall ride-sharing logistics.
+    publisher: European Symposium on Algorithms
+    summary: Designed algorithms to improve carpool pairings using local search techniques.
 
   - year: 2016
     title: Effective Trend Detection within a Dynamic Search Context
-    publisher: Proceedings of the 39th International conference on Research and
-      Development in Information Retrieval
-    summary: We propose a method for effective trend detection within a dynamic
-      search context, enabling real-time identification of emerging patterns to
-      enhance search relevance and user experience.
+    publisher: SIGIR 2016
+    summary: Developed algorithms for identifying trends in dynamic search environments.
 
   - year: 2010
     title: Cost-aware live migration of services in the cloud
-    publisher: Proceedings of the 3rd Annual Haifa Experimental Systems Conference
-    summary:
-      We propose a cost-aware approach for live migration of services in the
-      cloud, optimizing resource allocation and minimizing operational costs
-      while ensuring minimal service disruption.
+    publisher: Haifa Experimental Systems Conference
+    summary: Proposed cost-aware mechanisms for efficient service migration in cloud computing.
 
 projects:
+  - name: yomyomyoga.com
+    description: A platform for yoga teachers to build and manage their communities.
+    url: https://yomyomyoga.com
+
   - name: mozyq.org
     description: A beautiful photo mosaic generator.
     url: https://mozyq.org
 
   - name: tsk.monster
-    description: A cute little tsk runner
+    description: A cute little tsk runner.
     url: https://tsk.monster
 
   - name: detecty
@@ -217,7 +200,7 @@ projects:
     url: https://pypi.org/project/detecty/
 
   - name: plt-ocr
-    description: A Python package for reading car plates number.
+    description: A Python package for reading car plate numbers.
     url: https://pypi.org/project/plt-ocr/
 
   - name: NumNumNum
@@ -225,9 +208,7 @@ projects:
     url: https://play.google.com/store/apps/details?id=today.dailyquiz.snake
 
   - name: ogcrazy
-    description:
-      a web service that allows you to share short messages with custom
-      Open Graph content.
+    description: A web service that allows sharing messages with custom Open Graph content.
     url: https://ogcrazy.com
 
   - name: blgit
@@ -239,27 +220,23 @@ projects:
     url: https://bankidos.com/
 
   - name: gilad.kutiel.com
-    description: My personal website (draft) about healthy lifestyle.
+    description: My personal website about healthy lifestyle.
     url: https://gilad.kutiel.com
 
 skills:
   - name: Machine Learning & AI
     description: >
-      Natural Language Processing (NLP), Large Language Models (LLMs), Computer
-      Vision (CV), Uncertainty Estimation, Generative Models
+      Natural Language Processing (NLP), Large Language Models (LLMs), Computer Vision (CV),
+      Uncertainty Estimation, Generative Models
 
   - name: Programming Languages
-    description: >
-      Python, Java, Dart, JavaScript, TypeScript, HTML, CSS, SQL
+    description: Python, Java, Dart, JavaScript, TypeScript, HTML, CSS, SQL
 
   - name: Frameworks & Tools
-    description: >
-      PyTorch, PyTorch Lightning, FastAPI, Docker, Svelte, Git
+    description: PyTorch, PyTorch Lightning, FastAPI, Docker, Svelte, Git
 
   - name: Web Development
-    description: >
-      Full-stack development with Node.js and Svelte; RESTful APIs with FastAPI;
+    description: Full-stack development with Node.js and Svelte; RESTful APIs with FastAPI
 
   - name: Mobile Development
-    description: >
-      Cross-platform app development with Flutter and Dart
+    description: Cross-platform app development using Flutter and Dart

@@ -170,7 +170,7 @@ program
                                                             fontWeight: 'bold'
                                                         }}>{p.name}</td>
 
-                                                    <td style={{ paddingBottom: 20 }}>
+                                                    <td style={{ paddingBottom: 6 }}>
                                                         <p>{p.description}</p>
                                                         <a target='_blank' href={p.url}>{p.url}</a>
                                                     </td>
