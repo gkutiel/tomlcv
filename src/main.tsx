@@ -32,6 +32,9 @@ program
             summary,
             work,
             education,
+            publications,
+            projects,
+            skills
         } = yaml.parse(await readFile(cvYaml, "utf8")) as CV
 
         const html = <html>
@@ -130,63 +133,72 @@ program
                             </tbody>
                         </table>
 
+                        {publications && publications.length > 0 &&
+                            <>
+                                <h2>Selected Publication</h2>
+                                <table>
+                                    <tbody>
+                                        {
+                                            publications.map((p, i) => (
+                                                <tr key={i}>
+                                                    <td className="nowrap top" style={{ padding: '6px 24px 0 0' }}>{p.year}</td>
+                                                    <td style={{ paddingBottom: 20 }}>
+                                                        <h3>{p.title}</h3>
+                                                        <h4>{p.publisher}</h4>
+                                                        <p>{p.summary}</p>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            </>
+                        }
 
-                        {/* <h2>Education</h2>
-                        <div class="grid pad top">
-                            <div>{{ e.startDate }} - {{ e.endDate }}</div>
-                            <div>
-                                <h3>{{ e.degree }} in {{ e.field }} @ {{ e.institute }}</h3>
-                                <p>{{ e.summary }}</p>
-                                <ul>
-                                    <li>GPA: {{ e.gpa }}</li>
-                                    {% for highlight in e.highlights %}
-                                    <li>{{ highlight }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div> */}
+                        {projects && projects.length > 0 &&
+                            <>
+                                <h2>Projects</h2>
+                                <table>
+                                    <tbody>
+                                        {
+                                            projects.map((p, i) => (
+                                                <tr key={i}>
+                                                    <td
+                                                        className="nowrap top"
+                                                        style={{
+                                                            padding: '6px 24px 0 0',
+                                                            fontWeight: 'bold'
+                                                        }}>{p.name}</td>
+
+                                                    <td style={{ paddingBottom: 20 }}>
+                                                        <p>{p.description}</p>
+                                                        <a target='_blank' href={p.url}>{p.url}</a>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            </>
+                        }
 
 
-                        {/* <h2>Selected Publication</h2>
-                        {% for p in publications %}
-                        <div class="grid pad top">
-                            <div>{{ p.year }}</div>
-                            <div>
-                                <h3>{{ p.title }}</h3>
-                                <h4>{{ p.publisher }}</h4>
-                                <p>{{ p.summary }}</p>
-                            </div>
-                        </div>
-                        {% endfor %} */}
-
-
-                        {/* <h2>Projects</h2>
-                        {% for project in projects %}
-                        <div class="grid pad top">
-                            <div>
-                                <strong>{{ project.name }}</strong>
-                            </div>
-                            <div>
-                                <p>{{ project.description }}</p>
-                                <a href="{{project.url}}">{{ project.url }}</a>
-                            </div>
-                        </div>
-                        {% endfor %} */}
-
-
-                        {/* <h2>Skills</h2>
-                        <table id="skills">
-                            {% for skill in skills %}
-                            <tr>
-                                <td>
-                                    <strong>{{ skill.name }}</strong>
-                                </td>
-                                <td>
-                                    <p>{{ skill.description }}</p>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </table> */}
+                        {skills && skills.length > 0 &&
+                            <>
+                                <h2>Skills</h2>
+                                <table id="skills">
+                                    {skills.map((s, i) =>
+                                        <tr>
+                                            <td className="nowrap top" style={{
+                                                padding: '6px 24px 0 0',
+                                                fontWeight: 'bold'
+                                            }}>{s.name}</td>
+                                            <td><p>{s.description}</p></td>
+                                        </tr>
+                                    )}
+                                </table>
+                            </>
+                        }
 
 
                     </div>
