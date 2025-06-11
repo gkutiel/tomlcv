@@ -8,6 +8,12 @@ import { CV } from "./schema"
 
 const program = new Command()
 
+function date(date: string): string {
+    return new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+    })
+}
 
 program
     .name("yamlcv")
@@ -18,7 +24,7 @@ program
         console.log(`Processing CV file: ${cvYaml}`)
 
         const style = await readFile("src/index.css", "utf8")
-        const { image, name, title, contact, summary } = yaml.parse(await readFile(cvYaml, "utf8")) as CV
+        const { image, name, title, contact, summary, work } = yaml.parse(await readFile(cvYaml, "utf8")) as CV
 
         const html = <html>
             <head>
@@ -34,7 +40,7 @@ program
                         <div className="col gap center">
                             <img src={image} alt={name} />
                             <div id="contact">
-                                <table>
+                                <table className="small">
                                     <tr>
                                         <td>Email</td>
                                         <td><a href={`mailto:${contact.email}`}>{contact.email}</a></td>
@@ -68,28 +74,31 @@ program
                         </div>
                     </header>
 
-                    {/* <div id="content">
-
+                    <div id="content">
                         <h2>Work Experience</h2>
+                        <table>
+                            <tbody>
+                                {
+                                    work.map((w, index) => (
+                                        <tr>
+                                            <td className="nowrap top" style={{ padding: '6px 24px 0 0' }}>{date(w.startDate)} - {date(w.endDate)}</td>
+                                            <td style={{ paddingBottom: 20 }}>
+                                                <h3>{w.position} @ {w.employer}</h3>
+                                                <p>{w.summary}</p>
+                                                {w.highlights && <ul>
+                                                    {w.highlights.map((highlight, i) => (
+                                                        <li key={i}>{highlight}</li>
+                                                    ))}
+                                                </ul>}
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
 
-                        {% for w in work %}
-                        <div class="grid pad top">
-                            <div>{{ w.startDate }} - {{ w.endDate }}</div>
-                            <div>
-                                <h3>{{ w.position }} @ {{ w.employer }}</h3>
-                                <p>{{ w.summary }}</p>
-                                <ul>
-                                    {% for highlight in w.highlights %}
-                                    <li>{{ highlight }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                        {% endfor %}
 
-
-                        <h2>Education</h2>
-
+                        {/* <h2>Education</h2>
                         {% for e in education %}
                         <div class="grid pad top">
                             <div>{{ e.startDate }} - {{ e.endDate }}</div>
@@ -104,11 +113,10 @@ program
                                 </ul>
                             </div>
                         </div>
-                        {% endfor %}
+                        {% endfor %} */}
 
 
-                        <h2>Selected Publication</h2>
-
+                        {/* <h2>Selected Publication</h2>
                         {% for p in publications %}
                         <div class="grid pad top">
                             <div>{{ p.year }}</div>
@@ -118,11 +126,10 @@ program
                                 <p>{{ p.summary }}</p>
                             </div>
                         </div>
-                        {% endfor %}
+                        {% endfor %} */}
 
 
-                        <h2>Projects</h2>
-
+                        {/* <h2>Projects</h2>
                         {% for project in projects %}
                         <div class="grid pad top">
                             <div>
@@ -133,11 +140,10 @@ program
                                 <a href="{{project.url}}">{{ project.url }}</a>
                             </div>
                         </div>
-                        {% endfor %}
+                        {% endfor %} */}
 
 
-                        <h2>Skills</h2>
-
+                        {/* <h2>Skills</h2>
                         <table id="skills">
                             {% for skill in skills %}
                             <tr>
@@ -149,10 +155,10 @@ program
                                 </td>
                             </tr>
                             {% endfor %}
-                        </table>
+                        </table> */}
 
 
-                    </div> */}
+                    </div>
                 </main>
             </body>
         </html>
