@@ -1,0 +1,263 @@
+image: gilad.jpg
+name: Gilad Kutiel
+title: PhD, Applied Scientist
+summary: >
+  I hold a PhD in computer science and have more than 20 years of experience in
+  software development. 
+
+  Over the course of my career, I have developed expertise in natural language processing (NLP), large language models (LLM), and computer vision (CV). 
+
+  I have previously worked at top-tier companies such as Google, Facebook, and Amazon.
+
+contact:
+  email: gilad.kutiel@gmail.com
+  phone: +972-55-8858766
+  linkedin: https://linkedin.com/in/kutiel/
+  website: https://kutiel.com
+  dblp: https://dblp.org/pid/56/8210.html
+
+work:
+  - startDate: 2023-10-10
+    endDate: 2024-09-22
+    employer: Mobileye
+    position: Algorithm Engineer
+    summary: >
+      As a member of the Driver Monitoring System (DMS) team, I develop and
+      maintain critical components, including driver and face detection models. 
+
+      Additionally, I design and implement generative models to enhance and expand our datasets.
+    highlights: []
+
+  - startDate: 2022-02-01
+    endDate: 2023-04-01
+    employer: Verily
+    position: Research Scientist
+    summary: >
+      I developed a framework to estimate uncertainty in image-to-image
+      reconstruction, addressing the challenges of quantifying uncertainty in
+      both regression and generative models.
+    highlights:
+      - Developed a new framework for uncertainty estimation in image-to-image
+        reconstruction.
+      - "Published a paper on this work titled: What's Behind the Mask:
+        Estimating Uncertainty in Image-to-Image Problems."
+
+  - startDate: 2019-04-01
+    endDate: 2021-10-01
+    employer: Amazon
+    position: Applied Scientist
+    summary: >
+      As part of the Alexa Shopping team, I used large language models (LLMs) to
+      summarize product reviews.
+    highlights:
+      - Deployed large language models (LLMs) to summarize product reviews.
+      - "Published a paper on this work titled: Identifying Helpful Sentences in
+        Product Reviews."
+
+  - startDate: 2017-03-01
+    endDate: 2019-03-01
+    employer: Technion
+    position: Lecturer
+    summary: >
+      Taught foundational concepts in algorithms, including design, analysis,
+      and optimization, to undergraduate students.
+    highlights: []
+
+  - startDate: 2014-10-01
+    endDate: 2017-03-01
+    employer: Technion
+    position: Teaching Assistant in Charge
+    summary: >
+      Led and managed teaching activities for "Introduction to Algorithms" and
+      "Computability" including tutoring, grading, and assisting students with
+      course material.
+    highlights: []
+
+  - startDate: 2012-12-01
+    endDate: 2013-10-01
+    employer: Google
+    position: Software Engineer, Emerging Markets Group
+    summary: >
+      Designed and developed web services optimized for low-end mobile devices,
+      ensuring seamless functionality under constraints such as limited
+      bandwidth and processing power.
+    highlights: []
+
+  - startDate: 2011-12-01
+    endDate: 2012-12-01
+    employer: IBM
+    position: Researcher, Social Technologies Team
+    summary: >
+      Developed a trend detection algorithm for an enterprise activity stream
+      platform, enabling real-time insights into emerging patterns and user
+      engagement.
+    highlights:
+      - "Published a paper on this work titled: Effective Trend Detection within
+        a Dynamic Search Context."
+
+  - startDate: 2011-09-01
+    employer: Facebook
+    position: Intern
+    endDate: 2011-11-01
+    summary: >
+      Redesigned and rebuilt the messaging application for the Facebook Light
+      app, enhancing functionality and user experience for both feature phones
+      and smartphones.
+    highlights: []
+
+  - startDate: 2004-03-01
+    endDate: 2007-03-01
+    employer: Intel
+    position: Intern
+    summary: |
+      Developed location based web applications.
+    highlights: []
+
+education:
+  - startDate: 2014-10-01
+    endDate: 2019-04-01
+    degree: PhD
+    field: Computer Science
+    institute: Technion
+    summary: Developed Approximation algorithms for NP-hard optimization problems.
+    gpa: 92.8
+    highlights:
+      - "Thesis: Approximation Algorithms for Submodular Maximization and
+        Network Design Problems."
+      - Published 4 conference papers and 2 journal papers.
+
+  - startDate: 2008-01-01
+    endDate: 2011-10-01
+    degree: Master's Degree
+    field: Computer Science
+    institute: Technion
+    gpa: 92.5
+    summary: Developed algorithms for resource allocation in cloud computing.
+    highlights:
+      - "Thesis: Cost-Aware Live Migration of Services in the Cloud"
+
+  - startDate: 2003-03-01
+    endDate: 2008-01-01
+    degree: Bachelor's Degree
+    field: Computer Science
+    institute: Technion
+    gpa: "88.8"
+    summary: ""
+    highlights: []
+
+publications:
+  - year: 2023
+    title: "Conformal Prediction Masks: Visualizing Uncertainty in Medical Imaging"
+    publisher: Trustworthy Machine Learning for Healthcare Workshop at NeurIPS
+    summary: We present a method to generate interpretable uncertainty maps for
+      medical imaging. This approach enhances diagnostic transparency and
+      supports reliable decision-making in healthcare applications.
+
+  - year: 2021
+    title: Identifying Helpful Sentences in Product Reviews
+    publisher:
+      Proceedings of the 2021 Conference of the North American Chapter of
+      the Association for Computational Linguistics
+    summary: We propose a method for identifying the most helpful sentences in
+      product reviews, enhancing review summarization and supporting informed
+      consumer decisions.
+
+  - year: 2019
+    title:
+      Approximation Algorithms for Submodular Maximization and Network Design
+      Problems
+    publisher: Technion, Israel
+    summary: We propose approximation algorithms for submodular maximization and
+      network design problems, providing efficient solutions with performance
+      guarantees for complex optimization tasks.
+
+  - year: 2017
+    title: Service Chain Placement in SDNs
+    publisher: Algorithmic Aspects of Cloud Computing - ALGOCLOUD
+    summary: We propose a method for service chain placement in Software-Defined
+      Networks (SDNs), optimizing the deployment of network services for
+      efficiency and scalability.
+
+  - year: 2017
+    title: Local Search Algorithms for Maximum Carpool Matching
+    publisher: 25th Annual European Symposium on Algorithms
+    summary: We propose local search algorithms for the Maximum Carpool Matching
+      problem, offering efficient solutions to optimize carpool pairings and
+      improve overall ride-sharing logistics.
+
+  - year: 2016
+    title: Effective Trend Detection within a Dynamic Search Context
+    publisher: Proceedings of the 39th International conference on Research and
+      Development in Information Retrieval
+    summary: We propose a method for effective trend detection within a dynamic
+      search context, enabling real-time identification of emerging patterns to
+      enhance search relevance and user experience.
+
+  - year: 2010
+    title: Cost-aware live migration of services in the cloud
+    publisher: Proceedings of the 3rd Annual Haifa Experimental Systems Conference
+    summary:
+      We propose a cost-aware approach for live migration of services in the
+      cloud, optimizing resource allocation and minimizing operational costs
+      while ensuring minimal service disruption.
+
+projects:
+  - name: mozyq.org
+    description: A beautiful photo mosaic generator.
+    url: https://mozyq.org
+
+  - name: tsk.monster
+    description: A cute little tsk runner
+    url: https://tsk.monster
+
+  - name: detecty
+    description: A Python package for detecting car plates.
+    url: https://pypi.org/project/detecty/
+
+  - name: plt-ocr
+    description: A Python package for reading car plates number.
+    url: https://pypi.org/project/plt-ocr/
+
+  - name: NumNumNum
+    description: A fun and simple multiplayer strategy game.
+    url: https://play.google.com/store/apps/details?id=today.dailyquiz.snake
+
+  - name: ogcrazy
+    description:
+      a web service that allows you to share short messages with custom
+      Open Graph content.
+    url: https://ogcrazy.com
+
+  - name: blgit
+    description: The simplest static blog generator on Earth.
+    url: https://blgit.org/
+
+  - name: bankidos
+    description: A simple pocket manager app.
+    url: https://bankidos.com/
+
+  - name: gilad.kutiel.com
+    description: My personal website (draft) about healthy lifestyle.
+    url: https://gilad.kutiel.com
+
+skills:
+  - name: Machine Learning & AI
+    description: >
+      Natural Language Processing (NLP), Large Language Models (LLMs), Computer
+      Vision (CV), Uncertainty Estimation, Generative Models
+
+  - name: Programming Languages
+    description: >
+      Python, Java, Dart, JavaScript, TypeScript, HTML, CSS, SQL
+
+  - name: Frameworks & Tools
+    description: >
+      PyTorch, PyTorch Lightning, FastAPI, Docker, Svelte, Git
+
+  - name: Web Development
+    description: >
+      Full-stack development with Node.js and Svelte; RESTful APIs with FastAPI;
+
+  - name: Mobile Development
+    description: >
+      Cross-platform app development with Flutter and Dart

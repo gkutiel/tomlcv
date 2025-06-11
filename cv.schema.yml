@@ -1,0 +1,201 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://raw.githubusercontent.com/gkutiel/tomlcv/refs/heads/main/cv-schema.json"
+
+title: CV
+description: "Your CV in YAML format"
+type: object
+
+properties:
+  image:
+    type: string
+    description: "eg. image.jpg"
+
+  name:
+    type: string
+    description: "eg. Gilad Kutiel"
+
+  title:
+    type: string
+    description: "eg. Full Stack Developer"
+
+  summary:
+    type: string
+    description: "eg. I'm a full stack developer with 10 years of experience"
+
+  contact:
+    type: object
+    properties:
+      email:
+        type: string
+        description: "eg. example@gmail.com"
+      phone:
+        type: string
+        description: "eg. +972-50-1234567"
+      linkedin:
+        type: string
+        description: "eg. https://www.linkedin.com/in/kutiel"
+      website:
+        type: string
+        description: "eg. https://gilad.kutiel.com"
+      dblp:
+        type: string
+        description: "eg. https://dblp.org/pid/1234567"
+    required:
+      - email
+      - phone
+      - linkedin
+
+  work:
+    type: array
+    additionalItems: false
+    items:
+      type: object
+      properties:
+        startDate:
+          $ref: "#/$defs/iso8601"
+        endDate:
+          $ref: "#/$defs/iso8601"
+        employer:
+          type: string
+          description: "e.g. Facebook"
+        position:
+          type: string
+          description: "e.g. Software Engineer"
+        summary:
+          type: string
+          description: "e.g. Social Media Company"
+        highlights:
+          $ref: "#/$defs/highlights"
+      additionalProperties: false
+      required:
+        - startDate
+        - endDate
+        - employer
+        - position
+        - summary
+
+  education:
+    type: array
+    additionalItems: false
+    items:
+      type: object
+      properties:
+        startDate:
+          $ref: "#/$defs/iso8601"
+        endDate:
+          $ref: "#/$defs/iso8601"
+        degree:
+          type: string
+          description: "e.g. Bachelor"
+        field:
+          type: string
+          description: "e.g. Computer Science"
+        institute:
+          type: string
+          description: "e.g. University of Cambridge"
+        gpa:
+          type: number
+          description: "e.g. 92.1"
+        summary:
+          type: string
+          description: "e.g. Thesis: 'The Evolution of Social Media'"
+        highlights:
+          $ref: "#/$defs/highlights"
+
+      additionalProperties: false
+      required:
+        - startDate
+        - endDate
+        - degree
+        - field
+        - institute
+        - gpa
+        - summary
+
+  publications:
+    type: array
+    additionalItems: false
+    items:
+      type: object
+      properties:
+        year:
+          type: integer
+          description: "e.g. 2014"
+        title:
+          type: string
+          description: "e.g. 'The Evolution of Social Media'"
+        publisher:
+          type: string
+          description: "e.g. Journal of Social Media"
+        summary:
+          type: string
+          description: "e.g. Published in the Journal of Social Media"
+      additionalProperties: false
+      required:
+        - year
+        - title
+        - publisher
+        - summary
+
+  projects:
+    type: array
+    additionalItems: false
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "e.g. socily"
+        description:
+          type: string
+          description: "e.g. A social media platform for sharing photos"
+        url:
+          type: string
+          description: "e.g. https://myproject.com"
+      additionalProperties: false
+      required:
+        - name
+        - description
+        - url
+
+  skills:
+    type: array
+    additionalItems: false
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "e.g. Python"
+        description:
+          type: string
+          description: "e.g. 10 years of experience"
+
+      additionalProperties: false
+      required:
+        - name
+        - description
+
+additionalProperties: false
+required:
+  - image
+  - name
+  - title
+  - summary
+  - contact
+  - work
+  - education
+
+$defs:
+  iso8601:
+    type: string
+    description: "e.g. 2014-06-29"
+    pattern: "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+
+  highlights:
+    type: array
+    description: "Specify multiple accomplishments"
+    items:
+      type: string
+      description: "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+    additionalItems: false
